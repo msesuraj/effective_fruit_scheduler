@@ -1,8 +1,8 @@
 ﻿using System;
  
-namespace StringManipulation
+namespace ConsoleApp1
 {
-    class Program
+    class Menu
     {
         static void Main(string[] args)
         {
