@@ -3,7 +3,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class mainmenu : MonoBehaviour {
+public class Mainmenu : MonoBehaviour {
 
 	public Texture backgroundTexture;
 	public GUIStyle buttonStyle;
