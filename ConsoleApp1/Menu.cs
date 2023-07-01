@@ -18,7 +18,8 @@ namespace ConsoleApp1
             Console.WriteLine("Choose an option:");
             Console.WriteLine("1) Reverse String");
             Console.WriteLine("2) Remove Whitespace");
-            Console.WriteLine("3) Exit");
+            Console.WriteLine("3) Calling");
+            Console.WriteLine("4) Exit");
             Console.Write("\r\nSelect an option: ");
  
             switch (Console.ReadLine())
@@ -30,6 +31,10 @@ namespace ConsoleApp1
                     RemoveWhitespace();
                     return true;
                 case "3":
+                    OpenHours cl = new OpenHours();
+                    cl.TestMethod(); 
+                    return true;
+                case "4":
                     return false;
                 default:
                     return true;
