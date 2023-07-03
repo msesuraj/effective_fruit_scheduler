@@ -15,26 +15,29 @@ namespace ConsoleApp1
         private static bool MainMenu()
         {
             Console.Clear();
-            Console.WriteLine("Choose an option:");
-            Console.WriteLine("1) Reverse String");
-            Console.WriteLine("2) Remove Whitespace");
-            Console.WriteLine("3) Calling");
-            Console.WriteLine("4) Exit");
+            Console.WriteLine("Effective Fruits and Vegetables");
+            Console.WriteLine("1) Opening Hours");
+            Console.WriteLine("2) Calendar");
+            Console.WriteLine("3) Shift Times");
+            Console.WriteLine("4) Employees");
+            Console.WriteLine("9) Exit");
             Console.Write("\r\nSelect an option: ");
  
             switch (Console.ReadLine())
             {
                 case "1":
-                    ReverseString();
+                    OpenHours cl = new OpenHours();
+                    cl.TestMethod(); 
                     return true;
                 case "2":
                     RemoveWhitespace();
                     return true;
                 case "3":
-                    OpenHours cl = new OpenHours();
-                    cl.TestMethod(); 
+
                     return true;
                 case "4":
+                    return true;
+                case "9":
                     return false;
                 default:
                     return true;

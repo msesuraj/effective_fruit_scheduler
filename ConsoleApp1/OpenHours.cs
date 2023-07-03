@@ -14,3 +14,11 @@ namespace ConsoleApp1
          }
     }
 }
+/* location, day start time, end time  
+ File.Create("fileName");
+using System.IO;
+             string path = @"D:\Development\OwainCodes_Blogs\testFile.txt";
+            var output = new OutputFile(path, text);
+https://www.owain.codes/blogs/2021/may/create-a-console-app-that-saves-to-a-file/
+(write into file)
+*/
