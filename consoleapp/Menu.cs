@@ -1,6 +1,6 @@
 ﻿using System;
  
-namespace ConsoleApp1
+namespace ConsoleApp
 {
     class Menu
     {
@@ -32,7 +32,7 @@ namespace ConsoleApp1
                 case "1":
                     //calling the program that manages the opening hours
                     OpenHours cl = new OpenHours();
-                    cl.TestMethod(); 
+                    cl.OpenHoursMain(); 
                     return true;
                 case "2":
                     //calling the program that shows the calendar
@@ -49,7 +49,7 @@ namespace ConsoleApp1
                     return false;
                 default:
                     //error has been handled
-                    Console.Write("You have selected wrong menu option..Please select 1-5 ");
+                    Console.Write("Unfortunately, since you pressed a number that's above 5, it is a wrong option. Please select 1 - 5");
                     Console.ReadLine();
                     return true;
             }

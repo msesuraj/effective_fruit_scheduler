@@ -1,0 +1,165 @@
+using System;
+using System.IO;
+ 
+//List<SearchParameters> searchParameters = new List<SearchParameters>(); //creates the data structure to save the information into
+StreamReader testData = null;//creates a variable to load the data from the csv file
+List<string> gender = new List<string>();
+List<int> sales = new List<int>();
+List<string> firstnames = new List<string>();
+List<string> lastnames = new List<string>();
+ 
+main();//runs the functions and methods in the right order
+ 
+void main()
+{
+int numberoffemales;// gives the amount of females via a whole number(s)
+int numberofmales;// gives the amount of males via a whole number(s)
+int numberofsalesbyfemales;// gives the amount of sales by females
+int numberofsalesbymales;// gives the amount of sales by males
+ 
+ 
+csvload(); // loads file to csv file
+csvToList(); // reads file to lists 
+numberoffemales = FemaleCount(); //calculates number of females
+numberofmales = MaleCount(); //calculates number of males
+numberofsalesbyfemales = FemaleSalesSum(); //calculates sales done by females
+numberofsalesbymales = MaleSalesSum(); //calculates sales done by males
+Console.WriteLine("Number of females in data - " + numberoffemales);
+Console.WriteLine("Number of males in data - " + numberofmales);
+Console.WriteLine("Number of sales done by females in data - " + numberofsalesbyfemales);
+Console.WriteLine("Number of sales done by males in data - " + numberofsalesbymales);
+listnames();
+Console.ReadLine();
+ 
+}/// <summary>
+ /// where we sequence the funcations & methods
+ /// </summary>
+ 
+void csvload()
+{
+string fileLoc = Directory.GetCurrentDirectory() + @"\Task2Data.csv"; //it will store the file's location
+Console.WriteLine(fileLoc); // displaying file and it's location for debugging
+if (File.Exists(fileLoc)) // tests to see if file exists
+ 
+{
+testData = new StreamReader(File.OpenRead(fileLoc));
+Console.WriteLine("located .csv file");
+}
+else
+{
+Console.WriteLine("File not found");
+}
+ 
+}/// <summary>
+ /// Loads the csv file into the csvdocument "testdata" object for the program to use
+ /// </summary>
+ 
+void csvToList ()
+{
+ 
+ 
+List<string> LineValues = new List<string>();
+testData.ReadLine(); // skip first
+string line;
+while ((line = testData.ReadLine()) != null)
+{
+//Console.WriteLine(line);
+LineValues = line.Split(',').ToList();
+gender.Add(LineValues[5]);
+sales.Add(Int32.Parse(LineValues[4]));
+firstnames.Add(LineValues[1]);
+lastnames.Add(LineValues[2]);
+}
+Console.WriteLine(gender.Count);
+Console.WriteLine(sales.Count);
+/// <summary>
+/// writes the csv into a list for each coloumn
+/// </summary>
+}
+ 
+int FemaleCount()
+{
+int total; // property that contains the number of elements in the list 
+   //you can also count with a loop
+total = 0;
+for (int i = 0; i < gender.Count; i++)
+{
+if (gender[i].Contains("Female"))
+ 
+        {
+total++;
+        }
+ 
+}
+return total;
+}/// <summary>
+ /// returns the count of the number of elements in the list
+ /// </summary>
+ 
+int MaleCount()
+{
+int total; // property that contains the number of elements in the list 
+   //you can also count with a loop
+total = 0;
+for (int i = 0; i < gender.Count; i++)
+{
+if (gender[i].Contains("Male"))
+ 
+{
+total++;
+}
+ 
+}
+return total;
+}/// <summary>
+ /// returns the count of the number of elements in the list
+ /// </summary>
+int FemaleSalesSum()
+{
+int total; // property that contains the number of elements in the list 
+   //you can also count with a loop
+total = 0;
+for (int i = 0; i < sales.Count; i++)
+{
+if (gender[i].Contains("Female"))
+ 
+{
+total = total + sales[i];
+}
+ 
+}
+return total;
+}/// <summary>
+ /// returns the count of the number of elements in the list
+ /// </summary>
+ 
+int MaleSalesSum()
+{
+int total; // property that contains the number of elements in the list 
+   //you can also count with a loop
+total = 0;
+for (int i = 0; i < sales.Count; i++)
+{
+if (gender[i].Contains("Male"))
+ 
+{
+total = total + sales[i];
+}
+ 
+}
+return total;
+}/// <summary>
+ /// returns the count of the number of elements in the list
+ /// </summary>
+ 
+void listnames()
+{
+List<string> sortedlastnames = new List<string>(lastnames);
+int namelocation;
+sortedlastnames.Sort();
+for (int i = 0; i < sortedlastnames.Count; i++)
+{
+namelocation = lastnames.FindIndex(a => a.Contains(sortedlastnames[i]));
+Console.WriteLine(firstnames[namelocation] + " " + lastnames[namelocation]);
+}
+}
