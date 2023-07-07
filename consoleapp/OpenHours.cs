@@ -71,12 +71,14 @@ namespace ConsoleApp
                         lastnames.Add(LineValues[2]);
                         */
                     }
-                LineValues.ForEach(Console.WriteLine);
+                //LineValues.ForEach(Console.WriteLine);
                 Console.WriteLine("Opening Hours in total: " + openHoursRecords.Count);
 
                 foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
                     {
-                        Console.WriteLine(openHoursRecord.Day);
+                        Console.WriteLine(openHoursRecord.Day +
+                                           openHoursRecord.StartTime +
+                                           openHoursRecord.EndTime);
                     }
                 /*
                 // Print only those who are above the limit
