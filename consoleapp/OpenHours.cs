@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 
-
-
 namespace ConsoleApp
 {
     public class OpenHoursRecord
@@ -19,12 +17,14 @@ namespace ConsoleApp
     {
          StreamReader csvData = null;//creates a variable to load the data from the csv file
          List<OpenHoursRecord> openHoursRecords = new List<OpenHoursRecord>();
+         string fileLoc = Directory.GetCurrentDirectory() + @"\OpenHours.csv"; //it will store the file's location
 
          public void OpenHoursMain()
             {
                 CsvLoad(); // loads file to csv file
                 CsvToList(); // reads file to lists
                 MainMenu();
+                WriteFile();
                 Console.WriteLine("Inside OpenHours.OpenHoursMain");
                 Console.ReadLine();
 
@@ -32,7 +32,7 @@ namespace ConsoleApp
 
          void CsvLoad()
             {
-                string fileLoc = Directory.GetCurrentDirectory() + @"\OpenHours.csv"; //it will store the file's location
+                // string fileLoc = Directory.GetCurrentDirectory() + @"\OpenHours.csv"; //it will store the file's location
                 Console.WriteLine(fileLoc); // displaying file and it's location for debugging
                 if (File.Exists(fileLoc)) // tests to see if file exists      
                     {
@@ -42,7 +42,7 @@ namespace ConsoleApp
                     }
                 else
                     {
-                    Console.WriteLine("File not found");
+                    Console.WriteLine("Opening Hours Data File not found");
                     Console.ReadLine();
                     return;
                     }
@@ -70,20 +70,16 @@ namespace ConsoleApp
                 //LineValues.ForEach(Console.WriteLine);
                 Console.WriteLine("Opening Hours in total: " + openHoursRecords.Count);
 
+                csvData.Close();
+                
                 foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
                     {
-                        Console.WriteLine(openHoursRecord.Day +
+                        Console.WriteLine( openHoursRecord.LocationId +
+                                           openHoursRecord.Day +
                                            openHoursRecord.StartTime +
                                            openHoursRecord.EndTime);
                     }
-                /*
-                // Print only those who are above the limit
-                foreach (Person person in persons) {
-                if (person.age >= ageLimit)
-                { 
-                    Console.WriteLine(person);
-                }
-                */
+
 
             }
 
@@ -123,8 +119,8 @@ namespace ConsoleApp
          }
         }
 
-           void EnterData () 
-        {
+         void EnterData () 
+         {
                 Console.Clear();
                 Console.WriteLine("Effective Fruits and Vegetables");
                 Console.Write("Enter Location ID  : ");
@@ -143,14 +139,23 @@ namespace ConsoleApp
 
                 foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
                     {
-                        Console.WriteLine(openHoursRecord.Day +
+                        Console.WriteLine( openHoursRecord.LocationId +
+                                           openHoursRecord.Day +
                                            openHoursRecord.StartTime +
                                            openHoursRecord.EndTime);
                     }
                 Console.ReadLine();
                 
-            }
+        }
+         void WriteFile()
+         {
+            //var output = new OutputFile(path, text);
+            //
+           // var output = new OutputFile(fileLoc, text);
+            File.WriteAllLines(fileLoc, openHoursRecords.Select(x => string.Join(",", x)));
+         }
     }
+
 /* write to file 
 https://stackoverflow.com/questions/13815634/how-to-create-a-csv-file-from-liststring
 File.WriteAllLines("text.txt", lst.Select(x => string.Join(",", x)));
