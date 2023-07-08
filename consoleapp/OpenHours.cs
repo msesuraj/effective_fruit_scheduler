@@ -24,6 +24,14 @@ namespace ConsoleApp
             {
                 CsvLoad(); // loads file to csv file
                 CsvToList(); // reads file to lists
+      
+                bool showMenu = true;
+                while (showMenu)
+                {
+                    showMenu = MainMenu();
+                }
+     
+                
                 Console.WriteLine("Inside OpenHours.OpenHoursMain");
                 Console.ReadLine();
 
@@ -48,7 +56,8 @@ namespace ConsoleApp
                 Console.ReadLine();     
             }
 
-            void CsvToList ()
+        void CsvToList ()
+
             {           
                 List<string> LineValues = new List<string>();
                 //csvData.ReadLine(); // skip first
@@ -64,12 +73,6 @@ namespace ConsoleApp
                                                               EndTime =  LineValues[3].ToString() 
                                                               });
 
-                        /*
-                        gender.Add(LineValues[5]);
-                        sales.Add(Int32.Parse(LineValues[4]));
-                        firstnames.Add(LineValues[1]);
-                        lastnames.Add(LineValues[2]);
-                        */
                     }
                 //LineValues.ForEach(Console.WriteLine);
                 Console.WriteLine("Opening Hours in total: " + openHoursRecords.Count);
@@ -89,11 +92,53 @@ namespace ConsoleApp
                 }
                 */
 
-            /// <summary>
-            /// writes the csv into a list for each coloumn
-            /// </summary>
             }
 
+        private static bool MainMenu()
+        {
+            /* This shows the homepage along with the main menu for the different menus to access each page.
+                what you need to do is to type one of the numbers that's listed though if you put a number that's not on the list,
+                it can lead to an error,
+                if you need to exit, you can press "5" to exit the homepage. */
+            Console.Clear();
+            Console.WriteLine("Effective Fruits and Vegetables");
+            Console.WriteLine("1->) Add Opening Hours");
+            Console.WriteLine("2->) Exit");
+            Console.Write("\r\nSelect an option: ");
+ 
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    //calling the program that manages the opening hours
+                    //EnterData();
+                    return true;
+                case "2":
+                    //exits user from the homepage
+                    return false;
+                default:
+                    //error has been handled
+                    Console.Write("Unfortunately, since you pressed a number that's above 2, it is a wrong option. Please select 1 - 2");
+                    Console.ReadLine();
+                    return true;
+            }
+        }
+        
+            void EnterData () {
+                Console.WriteLine("Effective Fruits and Vegetables");
+                Console.WriteLine("Enter Location ID");
+                string locationId = Console.ReadLine();
+                Console.WriteLine("Enter Day");
+                string day = Console.ReadLine();
+                Console.WriteLine("Enter Start Time");
+                string startTime = Console.ReadLine();
+                Console.WriteLine("Enter End Time");
+                string endTime = Console.ReadLine();
+                openHoursRecords.Add(new OpenHoursRecord { LocationId = locationId,
+                                                            Day = day,
+                                                            StartTime = startTime,
+                                                            EndTime = endTime
+                                                            });
+            }
     }
 /* write to file 
 https://stackoverflow.com/questions/13815634/how-to-create-a-csv-file-from-liststring
