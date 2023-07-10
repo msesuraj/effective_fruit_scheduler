@@ -1,0 +1,68 @@
+       void WriteFile()
+         {
+            //var output = new OutputFile(path, text);
+            //
+           // var output = new OutputFile(fileLoc, text);
+           // File.WriteAllLines(fileLoc, openHoursRecords.Select(x => string.Join(",", x)));
+        //    foreach (T item in list)
+        //     {
+        //         //this acts as datacolumn
+        //         var row = string.Join(",", props.Select(d => $"\"{item.GetType().GetProperty(d.Name).GetValue(item, null)?.ToString()}\"")
+        //                                             .ToArray());
+        //         sw.Write(row + newLine);
+
+        //     }
+       using (var csvData = new StreamWriter(fileLoc))
+        {
+            // //make a new instance of the class name we figured out to get its props
+            // object o = Activator.CreateInstance(t);
+            // //gets all properties
+            // PropertyInfo[] props = o.GetType().GetProperties();
+
+            // //foreach of the properties in class above, write out properties
+            // //this is the header row
+            // sw.Write(string.Join(",", props.Select(d => d.Name).ToArray()) + newLine);
+
+            // //this acts as datarow
+            string newLine = Environment.NewLine;
+            foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
+            {
+                //this acts as datacolumn
+                var row = string.Join(",", props.Select(d => openHoursRecord.GetType()
+                                                                .GetProperty(d.Name)
+                                                                .GetValue(item, null)
+                                                                .ToString())
+                                                        .ToArray());
+                csvData.Write(row + newLine);
+
+            }
+         }
+    }
+
+    =============
+            void WriteFile() 
+         {
+            using (var csvData = new StreamWriter(fileLoc)) 
+            {
+                Type t = openHoursRecords[0].GetType();
+                object o = Activator.CreateInstance();
+                //gets all properties
+                PropertyInfo[] props = o.GetType().GetProperties();
+                string newLine = Environment.NewLine;
+                foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
+                    {
+                        csvData.WriteLine( openHoursRecord.LocationId +
+                                           openHoursRecord.Day +
+                                           openHoursRecord.StartTime +
+                                           openHoursRecord.EndTime);
+                        var row = string.Join(",", props.Select(d => openHoursRecord.GetType()
+                                                .GetProperty(d.Name)
+                                                .GetValue(item, null)
+                                                .ToString())
+                                        .ToArray());
+                csvData.Write(row + newLine);
+                    }
+            }
+         }
+         
+

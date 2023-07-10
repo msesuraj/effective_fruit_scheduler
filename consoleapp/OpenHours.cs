@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text;
 
 namespace ConsoleApp
 {
@@ -24,7 +25,8 @@ namespace ConsoleApp
                 CsvLoad(); // loads file to csv file
                 CsvToList(); // reads file to lists
                 MainMenu();
-                WriteFile();
+                // WriteFile();
+                CreateCsv(openHoursRecords,fileLoc );
                 Console.WriteLine("Inside OpenHours.OpenHoursMain");
                 Console.ReadLine();
 
@@ -71,7 +73,7 @@ namespace ConsoleApp
                 Console.WriteLine("Opening Hours in total: " + openHoursRecords.Count);
 
                 csvData.Close();
-                
+
                 foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
                     {
                         Console.WriteLine( openHoursRecord.LocationId +
@@ -147,14 +149,32 @@ namespace ConsoleApp
                 Console.ReadLine();
                 
         }
-         void WriteFile()
+         void CreateCsv<T>(List<T> openHoursList, string fileName)
          {
-            //var output = new OutputFile(path, text);
-            //
-           // var output = new OutputFile(fileLoc, text);
-            File.WriteAllLines(fileLoc, openHoursRecords.Select(x => string.Join(",", x)));
+            var sb = new StringBuilder();
+            // var basePath = AppDomain.CurrentDomain.BaseDirectory;
+            // var finalPath = Path.Combine(basePath, fileName+".csv");
+            var header = "";
+            var info = typeof(T).GetProperties();
+            var file = File.Create(fileName);
+            file.Close();
+            foreach (var obj in openHoursList)
+                {
+                    sb = new StringBuilder();
+                    var line = "";
+                    foreach (var prop in info)
+                    {
+                        line += prop.GetValue(obj, null) + ",";
+                    }
+                    line = line.Substring(0, line.Length - 1);
+                    sb.AppendLine(line);
+                    TextWriter sw = new StreamWriter(fileName, true);
+                    sw.Write(sb.ToString());
+                    sw.Close(); 
+                }
          }
     }
+}
 
 /* write to file 
 https://stackoverflow.com/questions/13815634/how-to-create-a-csv-file-from-liststring
@@ -172,9 +192,6 @@ https://www.c-sharpcorner.com/article/c-sharp-list/
 */
 
 
-}
-
-
 /* location, day start time, end time  
  File.Create("fileName");
 using System.IO;
@@ -182,4 +199,5 @@ using System.IO;
             var output = new OutputFile(path, text);
 https://www.owain.codes/blogs/2021/may/create-a-console-app-that-saves-to-a-file/
 (write into file)
+https://stackoverflow.com/questions/1890093/converting-a-generic-list-to-a-csv-string
 */
