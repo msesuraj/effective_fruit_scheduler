@@ -64,5 +64,32 @@
                     }
             }
          }
-         
 
+
+=========
+
+/* write to file 
+https://stackoverflow.com/questions/13815634/how-to-create-a-csv-file-from-liststring
+File.WriteAllLines("text.txt", lst.Select(x => string.Join(",", x)));
+https://www.makeuseof.com/csv-file-c-sharp-save-data/
+
+https://www.youtube.com/watch?v=fRaSeLYYrcQ
+
+https://www.clintmcmahon.com/how-to-open-a-csv-file-in-the-browser/
+
+https://gist.github.com/luisdeol/c2c276796a92c8e3246ce2cd3e17e1df
+
+https://www.c-sharpcorner.com/article/how-to-read-data-from-csv-file-in-c-sharp/
+https://www.c-sharpcorner.com/article/c-sharp-list/
+*/
+
+
+/* location, day start time, end time  
+ File.Create("fileName");
+using System.IO;
+             string path = @"D:\Development\OwainCodes_Blogs\testFile.txt";
+            var output = new OutputFile(path, text);
+https://www.owain.codes/blogs/2021/may/create-a-console-app-that-saves-to-a-file/
+(write into file)
+https://stackoverflow.com/questions/1890093/converting-a-generic-list-to-a-csv-string
+*/

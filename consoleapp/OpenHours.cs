@@ -9,6 +9,7 @@ namespace ConsoleApp
 {
     public class OpenHoursRecord
     {
+        //This defines the opening hours records structure//
         public string? LocationId{ get; set; } 
         public string? Day{ get; set; }
         public string? StartTime{ get; set; }
@@ -24,36 +25,32 @@ namespace ConsoleApp
             {
                 CsvLoad(); // loads file to csv file
                 CsvToList(); // reads file to lists
-                MainMenu();
-                // WriteFile();
+                MainMenu(); //this opens the menu to input opening hours
                 CreateCsv(openHoursRecords,fileLoc );
-                Console.WriteLine("Inside OpenHours.OpenHoursMain");
-                Console.ReadLine();
-
            }
 
          void CsvLoad()
             {
-                // string fileLoc = Directory.GetCurrentDirectory() + @"\OpenHours.csv"; //it will store the file's location
-                Console.WriteLine(fileLoc); // displaying file and it's location for debugging
+                // this function loads the csv data into the programming, if file is not found,
+                // it will lead to an error (expected file is OpenHours.csv)
                 if (File.Exists(fileLoc)) // tests to see if file exists      
                     {
                     csvData = new StreamReader(File.OpenRead(fileLoc));
-                    Console.WriteLine("located .csv file");
-                    Console.ReadLine();
+                    // Console.WriteLine("located .csv file");
+                    // Console.ReadLine();
                     }
                 else
                     {
                     Console.WriteLine("Opening Hours Data File not found");
                     Console.ReadLine();
                     return;
-                    }
-                Console.ReadLine();     
+                    }    
             }
 
          void CsvToList ()
 
             {           
+                //This method copies the data into list objects
                 List<string> LineValues = new List<string>();
                 //csvData.ReadLine(); // skip first
                 string line;
@@ -70,10 +67,11 @@ namespace ConsoleApp
 
                     }
                 //LineValues.ForEach(Console.WriteLine);
-                Console.WriteLine("Opening Hours in total: " + openHoursRecords.Count);
+                // Console.WriteLine("Opening Hours in total: " + openHoursRecords.Count);
 
                 csvData.Close();
 
+                // Now loop through to load the data into the list
                 foreach (OpenHoursRecord openHoursRecord in openHoursRecords)
                     {
                         Console.WriteLine( openHoursRecord.LocationId +
@@ -90,7 +88,7 @@ namespace ConsoleApp
             /* This shows the homepage along with the main menu for the different menus to access each page.
                 what you need to do is to type one of the numbers that's listed though if you put a number that's not on the list,
                 it can lead to an error,
-                if you need to exit, you can press "5" to exit the homepage. */
+                if you need to exit, you can press "2" to exit the homepage. */
              bool showMenu = true;
              while (showMenu)
              {          
@@ -123,9 +121,10 @@ namespace ConsoleApp
 
          void EnterData () 
          {
+                //This shows the menu and accepts the opening hours' data that's inputted
                 Console.Clear();
                 Console.WriteLine("Effective Fruits and Vegetables");
-                Console.Write("Enter Location ID  : ");
+                Console.Write("Enter Location : ");
                 string locationId = Console.ReadLine();
                 Console.Write("Enter Day : ");
                 string day = Console.ReadLine();
@@ -151,9 +150,8 @@ namespace ConsoleApp
         }
          void CreateCsv<T>(List<T> openHoursList, string fileName)
          {
+            //This copies data from the programming to the csv file
             var sb = new StringBuilder();
-            // var basePath = AppDomain.CurrentDomain.BaseDirectory;
-            // var finalPath = Path.Combine(basePath, fileName+".csv");
             var header = "";
             var info = typeof(T).GetProperties();
             var file = File.Create(fileName);
@@ -175,29 +173,3 @@ namespace ConsoleApp
          }
     }
 }
-
-/* write to file 
-https://stackoverflow.com/questions/13815634/how-to-create-a-csv-file-from-liststring
-File.WriteAllLines("text.txt", lst.Select(x => string.Join(",", x)));
-https://www.makeuseof.com/csv-file-c-sharp-save-data/
-
-https://www.youtube.com/watch?v=fRaSeLYYrcQ
-
-https://www.clintmcmahon.com/how-to-open-a-csv-file-in-the-browser/
-
-https://gist.github.com/luisdeol/c2c276796a92c8e3246ce2cd3e17e1df
-
-https://www.c-sharpcorner.com/article/how-to-read-data-from-csv-file-in-c-sharp/
-https://www.c-sharpcorner.com/article/c-sharp-list/
-*/
-
-
-/* location, day start time, end time  
- File.Create("fileName");
-using System.IO;
-             string path = @"D:\Development\OwainCodes_Blogs\testFile.txt";
-            var output = new OutputFile(path, text);
-https://www.owain.codes/blogs/2021/may/create-a-console-app-that-saves-to-a-file/
-(write into file)
-https://stackoverflow.com/questions/1890093/converting-a-generic-list-to-a-csv-string
-*/
