@@ -22,7 +22,10 @@ namespace WinFormsApp1
     {
         StreamReader csvData = null;//creates a variable to load the data from the csv file
         List<LoginDetailsRecord> LoginDetailsRecords = new List<LoginDetailsRecord>();
-        string fileLoc = Directory.GetCurrentDirectory() + @"\data\11OpenHours.csv"; //it will store the file's location
+        // string fileLoc = Directory.GetCurrentDirectory() + @"..\..\..\data\OpenHours.csv"; //it will store the file's location
+        // string parentOfStartupPath = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Orders.xml";
+        string fileLoc = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "LoginDetails.csv";
+
 
         public Login()
         {
@@ -65,14 +68,11 @@ namespace WinFormsApp1
             if (File.Exists(fileLoc)) // tests to see if file exists      
                 {
                 csvData = new StreamReader(File.OpenRead(fileLoc));
-                // Console.WriteLine("located .csv file");
-                // Console.ReadLine();
                 }
             else
                 {
-                // Console.WriteLine("Opening Hours Data File not found");
-                // Console.ReadLine();
-                MessageBox.Show("Opening Hours Data File not found");
+                MessageBox.Show(fileLoc);
+                MessageBox.Show("Login Username/Password Data File not found");
                 return;
                 }    
         }
