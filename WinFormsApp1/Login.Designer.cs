@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            textName = new TextBox();
+            textPassword = new TextBox();
+            buttonLogIn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -36,18 +41,67 @@
             label1.AutoSize = true;
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(188, 77);
+            label1.Location = new Point(163, 78);
             label1.Name = "label1";
             label1.Size = new Size(405, 47);
             label1.TabIndex = 0;
             label1.Text = "Enter UserId And Password";
             label1.Click += label1_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(175, 187);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 25);
+            label2.TabIndex = 1;
+            label2.Text = "UserID";
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(169, 240);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 25);
+            label3.TabIndex = 2;
+            label3.Text = "Password";
+            label3.Click += label3_Click;
+            // 
+            // textName
+            // 
+            textName.Location = new Point(316, 181);
+            textName.Name = "textName";
+            textName.Size = new Size(252, 31);
+            textName.TabIndex = 3;
+            // 
+            // textPassword
+            // 
+            textPassword.Location = new Point(316, 240);
+            textPassword.Name = "textPassword";
+            textPassword.Size = new Size(252, 31);
+            textPassword.TabIndex = 4;
+            // 
+            // buttonLogIn
+            // 
+            buttonLogIn.Location = new Point(355, 332);
+            buttonLogIn.Name = "buttonLogIn";
+            buttonLogIn.Size = new Size(112, 34);
+            buttonLogIn.TabIndex = 5;
+            buttonLogIn.Text = "Log In";
+            buttonLogIn.UseVisualStyleBackColor = true;
+            buttonLogIn.Click += buttonLogIn_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(779, 445);
+            Controls.Add(buttonLogIn);
+            Controls.Add(textPassword);
+            Controls.Add(textName);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
             Name = "Login";
             Text = "EF&V Login";
@@ -58,5 +112,10 @@
         #endregion
 
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private TextBox textName;
+        private TextBox textPassword;
+        private Button buttonLogIn;
     }
 }
