@@ -128,6 +128,13 @@ namespace ConsoleApp
                 string locationId = Console.ReadLine();
                 Console.Write("Enter Day : ");
                 string day = Console.ReadLine();
+                // checking if the day is valid
+                if (day != "Monday" && day != "Tuesday" && day != "Wednesday" && day != "Thursday" && day != "Friday" && day != "Saturday" && day != "Sunday")
+                    {
+                        Console.WriteLine("Invalid Day");
+                        Console.ReadLine();
+                        return;
+                    }
                 Console.Write("Enter Start Time : ");
                 string startTime = Console.ReadLine();
                 Console.Write("Enter End Time : ");
