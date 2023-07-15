@@ -51,6 +51,7 @@
             menuStrip1.Size = new Size(800, 32);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // monthCalendar1
             // 

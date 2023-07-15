@@ -11,12 +11,7 @@ using System.IO;
 
 namespace WinFormsApp1
 {
-    public class LoginDetailsRecord
-    {
-        //This defines the login dettails records structure//
-        public string? LoginId{ get; set; } 
-        public string? Password{ get; set; }
-    }
+ 
 
     public partial class Login : Form
     {
@@ -49,6 +44,13 @@ namespace WinFormsApp1
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
+             if (textLoginId.Text == "" || textPassword.Text == "")
+                {
+                MessageBox.Show("Please enter a valid Login ID and Password");
+                return;
+                }
+
+              
              CsvLoad(); // loads file to csv file
 
              //when the login details are wrong then clear the text
@@ -76,5 +78,12 @@ namespace WinFormsApp1
                 return;
                 }    
         }
+    }
+
+    public class LoginDetailsRecord
+    {
+        //This defines the login dettails records structure//
+        public string? LoginId{ get; set; } 
+        public string? Password{ get; set; }
     }
 }

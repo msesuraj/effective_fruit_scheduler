@@ -31,7 +31,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textName = new TextBox();
+            textLoginId = new TextBox();
             textPassword = new TextBox();
             buttonLogIn = new Button();
             SuspendLayout();
@@ -68,12 +68,12 @@
             label3.Text = "Password";
             label3.Click += label3_Click;
             // 
-            // textName
+            // textLoginId
             // 
-            textName.Location = new Point(316, 181);
-            textName.Name = "textName";
-            textName.Size = new Size(252, 31);
-            textName.TabIndex = 3;
+            textLoginId.Location = new Point(316, 181);
+            textLoginId.Name = "textLoginId";
+            textLoginId.Size = new Size(252, 31);
+            textLoginId.TabIndex = 3;
             // 
             // textPassword
             // 
@@ -99,7 +99,7 @@
             ClientSize = new Size(779, 445);
             Controls.Add(buttonLogIn);
             Controls.Add(textPassword);
-            Controls.Add(textName);
+            Controls.Add(textLoginId);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -114,7 +114,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textName;
+        private TextBox textLoginId;
         private TextBox textPassword;
         private Button buttonLogIn;
     }
