@@ -34,5 +34,12 @@ namespace WinFormsApp1
             polices.Show();
             this.Hide();
         }
+
+        private void buttonOpeningHours_Click(object sender, EventArgs e)
+        {
+            OpeningHours openinghour = new OpeningHours();
+            openinghour.Show();
+            this.Hide();
+        }
     }
 }
