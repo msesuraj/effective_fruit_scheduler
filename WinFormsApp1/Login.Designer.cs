@@ -81,6 +81,8 @@
             textPassword.Name = "textPassword";
             textPassword.Size = new Size(252, 31);
             textPassword.TabIndex = 4;
+            textPassword.UseSystemPasswordChar = true;
+            textPassword.TextChanged += textPassword_TextChanged;
             // 
             // buttonLogIn
             // 
