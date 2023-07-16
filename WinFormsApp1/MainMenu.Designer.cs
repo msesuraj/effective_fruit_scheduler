@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MainMenu";
+            buttonLogout = new Button();
+            SuspendLayout();
+            // 
+            // buttonLogout
+            // 
+            buttonLogout.Location = new Point(676, 24);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Size = new Size(112, 34);
+            buttonLogout.TabIndex = 0;
+            buttonLogout.Text = "Logout";
+            buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.Click += buttonLogout_Click;
+            // 
+            // MainMenu
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(buttonLogout);
+            Name = "MainMenu";
+            Text = "EF&Y - Main Menu";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button buttonLogout;
     }
 }

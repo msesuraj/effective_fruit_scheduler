@@ -16,5 +16,11 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Goodbye");
+            Application.Exit();
+        }
     }
 }
