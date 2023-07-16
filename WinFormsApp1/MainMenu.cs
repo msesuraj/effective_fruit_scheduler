@@ -22,5 +22,17 @@ namespace WinFormsApp1
             MessageBox.Show("Goodbye");
             Application.Exit();
         }
+
+        private void pictureBoxOpeningHours_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPolicy_Click(object sender, EventArgs e)
+        {
+            Policies polices = new Policies();
+            polices.Show();
+            this.Hide();
+        }
     }
 }
