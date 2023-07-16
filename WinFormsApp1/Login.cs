@@ -52,15 +52,12 @@ namespace WinFormsApp1
 
               
              CsvLoad(); // loads file to csv file
-
-             //when the login details are wrong then clear the text
-             // 
-            //  textBoxLoginId.Text = "";
-            //  textBoxPassword.Text = "";
-
-             MainMenu mainMenu = new MainMenu();
-             mainMenu.Show();
-             this.Hide();
+             if ( CheckingValidLogin() ) // validating login and password
+             { 
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
+                this.Hide();
+             }
         }
 
         void CsvLoad()
@@ -78,6 +75,36 @@ namespace WinFormsApp1
                 return;
                 }    
         }
+
+       private bool CheckingValidLogin()
+       {
+            List<string> LineValues = new List<string>();
+            string line;
+            while ((line = csvData.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    LineValues = line.Split(',').ToList();
+                
+                    // openHoursRecords.Add(new OpenHoursRecord { LocationId = LineValues[0].ToString(),
+                    //                                         Day = LineValues[1].ToString(),
+                    //                                         StartTime = LineValues[2].ToString(),
+                    //                                         EndTime =  LineValues[3].ToString() 
+                    //                                         });
+        
+                    //displaying the message box with values from list
+                    // MessageBox.Show(LineValues[0].ToString() + " " + LineValues[1].ToString());
+                    // checking if the login details are correct
+                    if (textLoginId.Text == LineValues[0].ToString() && textPassword.Text == LineValues[1].ToString())
+                    {
+                        MessageBox.Show("Login Successful");
+                        return true;
+                    }
+                }
+            MessageBox.Show("Invalid Login Username and Password");
+            textLoginId.Text = "";
+            textPassword.Text = "";  
+            return false;
+       }
     }
 
     public class LoginDetailsRecord
