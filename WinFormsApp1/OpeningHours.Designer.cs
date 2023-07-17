@@ -76,7 +76,7 @@
             textBox1.Location = new Point(483, 114);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(252, 31);
-            textBox1.TabIndex = 7;
+            textBox1.TabIndex = 15;
             // 
             // labelDay
             // 
@@ -92,7 +92,7 @@
             textBox2.Location = new Point(177, 185);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(252, 31);
-            textBox2.TabIndex = 9;
+            textBox2.TabIndex = 2;
             // 
             // labelStartTime
             // 
@@ -108,7 +108,7 @@
             textBox3.Location = new Point(173, 255);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(252, 31);
-            textBox3.TabIndex = 11;
+            textBox3.TabIndex = 3;
             // 
             // labelEndTime
             // 
@@ -124,14 +124,14 @@
             textBox4.Location = new Point(173, 340);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(252, 31);
-            textBox4.TabIndex = 13;
+            textBox4.TabIndex = 4;
             // 
             // buttonSaveOH
             // 
             buttonSaveOH.Location = new Point(250, 462);
             buttonSaveOH.Name = "buttonSaveOH";
             buttonSaveOH.Size = new Size(112, 34);
-            buttonSaveOH.TabIndex = 14;
+            buttonSaveOH.TabIndex = 5;
             buttonSaveOH.Text = "Save";
             buttonSaveOH.UseVisualStyleBackColor = true;
             // 
@@ -140,7 +140,7 @@
             textLocationId.Location = new Point(177, 114);
             textLocationId.Name = "textLocationId";
             textLocationId.Size = new Size(252, 31);
-            textLocationId.TabIndex = 15;
+            textLocationId.TabIndex = 1;
             textLocationId.TextChanged += textLocationId_TextChanged;
             // 
             // OpeningHours
