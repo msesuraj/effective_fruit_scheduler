@@ -31,7 +31,6 @@
             buttonMainMenuOH = new Button();
             label1 = new Label();
             labelLocationID = new Label();
-            textLocationId = new TextBox();
             textBox1 = new TextBox();
             labelDay = new Label();
             textBox2 = new TextBox();
@@ -40,6 +39,7 @@
             labelEndTime = new Label();
             textBox4 = new TextBox();
             buttonSaveOH = new Button();
+            textLocationId = new TextBox();
             SuspendLayout();
             // 
             // buttonMainMenuOH
@@ -69,14 +69,6 @@
             labelLocationID.Size = new Size(102, 25);
             labelLocationID.TabIndex = 5;
             labelLocationID.Text = "Location ID";
-            // 
-            // textLocationId
-            // 
-            textLocationId.Location = new Point(177, 114);
-            textLocationId.Name = "textLocationId";
-            textLocationId.Size = new Size(252, 31);
-            textLocationId.TabIndex = 6;
-            textLocationId.TextChanged += textLoginId_TextChanged;
             // 
             // textBox1
             // 
@@ -143,11 +135,20 @@
             buttonSaveOH.Text = "Save";
             buttonSaveOH.UseVisualStyleBackColor = true;
             // 
+            // textLocationId
+            // 
+            textLocationId.Location = new Point(177, 114);
+            textLocationId.Name = "textLocationId";
+            textLocationId.Size = new Size(252, 31);
+            textLocationId.TabIndex = 15;
+            textLocationId.TextChanged += textLocationId_TextChanged;
+            // 
             // OpeningHours
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 613);
+            Controls.Add(textLocationId);
             Controls.Add(buttonSaveOH);
             Controls.Add(textBox4);
             Controls.Add(labelEndTime);
@@ -156,7 +157,6 @@
             Controls.Add(textBox2);
             Controls.Add(labelDay);
             Controls.Add(textBox1);
-            Controls.Add(textLocationId);
             Controls.Add(labelLocationID);
             Controls.Add(label1);
             Controls.Add(buttonMainMenuOH);
@@ -171,7 +171,6 @@
         private Button buttonMainMenuOH;
         private Label label1;
         private Label labelLocationID;
-        private TextBox textLocationId;
         private TextBox textBox1;
         private Label labelDay;
         private TextBox textBox2;
@@ -180,5 +179,6 @@
         private Label labelEndTime;
         private TextBox textBox4;
         private Button buttonSaveOH;
+        private TextBox textLocationId;
     }
 }
