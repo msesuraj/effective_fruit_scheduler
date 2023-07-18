@@ -134,6 +134,7 @@
             buttonSaveOH.TabIndex = 5;
             buttonSaveOH.Text = "Save";
             buttonSaveOH.UseVisualStyleBackColor = true;
+            buttonSaveOH.Click += buttonSaveOH_Click;
             // 
             // textLocationId
             // 
@@ -142,6 +143,7 @@
             textLocationId.Size = new Size(252, 31);
             textLocationId.TabIndex = 1;
             textLocationId.TextChanged += textLocationId_TextChanged;
+            textLocationId.Validated += textLocationId_Validated;
             // 
             // OpeningHours
             // 
