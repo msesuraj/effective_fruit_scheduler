@@ -33,11 +33,11 @@
             labelLocationID = new Label();
             textLocationName = new TextBox();
             labelDay = new Label();
-            textBox2 = new TextBox();
+            textDay = new TextBox();
             labelStartTime = new Label();
-            textBox3 = new TextBox();
+            textStartTime = new TextBox();
             labelEndTime = new Label();
-            textBox4 = new TextBox();
+            textEndTime = new TextBox();
             buttonSaveOH = new Button();
             textLocationId = new TextBox();
             SuspendLayout();
@@ -87,12 +87,13 @@
             labelDay.TabIndex = 8;
             labelDay.Text = "Day";
             // 
-            // textBox2
+            // textDay
             // 
-            textBox2.Location = new Point(177, 185);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(252, 31);
-            textBox2.TabIndex = 2;
+            textDay.Location = new Point(177, 185);
+            textDay.Name = "textDay";
+            textDay.Size = new Size(252, 31);
+            textDay.TabIndex = 2;
+            textDay.Validated += textDay_Validated;
             // 
             // labelStartTime
             // 
@@ -103,12 +104,12 @@
             labelStartTime.TabIndex = 10;
             labelStartTime.Text = "StartTime";
             // 
-            // textBox3
+            // textStartTime
             // 
-            textBox3.Location = new Point(173, 255);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(252, 31);
-            textBox3.TabIndex = 3;
+            textStartTime.Location = new Point(173, 255);
+            textStartTime.Name = "textStartTime";
+            textStartTime.Size = new Size(252, 31);
+            textStartTime.TabIndex = 3;
             // 
             // labelEndTime
             // 
@@ -119,12 +120,12 @@
             labelEndTime.TabIndex = 12;
             labelEndTime.Text = "EndTime";
             // 
-            // textBox4
+            // textEndTime
             // 
-            textBox4.Location = new Point(173, 340);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(252, 31);
-            textBox4.TabIndex = 4;
+            textEndTime.Location = new Point(173, 340);
+            textEndTime.Name = "textEndTime";
+            textEndTime.Size = new Size(252, 31);
+            textEndTime.TabIndex = 4;
             // 
             // buttonSaveOH
             // 
@@ -152,11 +153,11 @@
             ClientSize = new Size(800, 613);
             Controls.Add(textLocationId);
             Controls.Add(buttonSaveOH);
-            Controls.Add(textBox4);
+            Controls.Add(textEndTime);
             Controls.Add(labelEndTime);
-            Controls.Add(textBox3);
+            Controls.Add(textStartTime);
             Controls.Add(labelStartTime);
-            Controls.Add(textBox2);
+            Controls.Add(textDay);
             Controls.Add(labelDay);
             Controls.Add(textLocationName);
             Controls.Add(labelLocationID);
@@ -175,12 +176,15 @@
         private Label labelLocationID;
         private TextBox textLocationName;
         private Label labelDay;
-        private TextBox textBox2;
+        private TextBox textBoxDay;
         private Label labelStartTime;
-        private TextBox textBox3;
+        private TextBox textBoxStartTime;
         private Label labelEndTime;
-        private TextBox textBox4;
+        private TextBox textBoxEndTime;
         private Button buttonSaveOH;
         private TextBox textLocationId;
+        private TextBox textDay;
+        private TextBox textStartTime;
+        private TextBox textEndTime;
     }
 }

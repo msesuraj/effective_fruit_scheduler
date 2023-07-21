@@ -15,7 +15,7 @@ namespace WinFormsApp1
         string fileLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Location.csv";
         StreamReader csvDataLocation = null;//creates a variable to load the data from the csv file
         List<LocationRecord> LocationRecords = new List<LocationRecord>();
-    
+
         public OpeningHours()
         {
             InitializeComponent();
@@ -43,20 +43,20 @@ namespace WinFormsApp1
         private void textLocationId_Validated(object sender, EventArgs e)
         {
             //validate_textLocationId_empty();
-            if (! (string.IsNullOrWhiteSpace(textLocationId.Text)))
+            if (!(string.IsNullOrWhiteSpace(textLocationId.Text)))
             {
 
                 if (File.Exists(fileLocation)) // tests to see if file exists      
-                    {
-                        csvDataLocation = new StreamReader(File.OpenRead(fileLocation));
-                    }
-                    else
-                    {
-                        MessageBox.Show(fileLocation);
-                        MessageBox.Show("Location.csv Data File not found");
-                        textLocationId.Focus();
-                    }
-               
+                {
+                    csvDataLocation = new StreamReader(File.OpenRead(fileLocation));
+                }
+                else
+                {
+                    MessageBox.Show(fileLocation);
+                    MessageBox.Show("Location.csv Data File not found");
+                    textLocationId.Focus();
+                }
+
                 List<string> LineValues = new List<string>();
                 string line;
                 while ((line = csvDataLocation.ReadLine()) != null)
@@ -79,6 +79,10 @@ namespace WinFormsApp1
                 textLocationId.Focus();
             }
         }
+        private void textDay_Validated(object sender, EventArgs e)
+        {
+            MessageBox.Show("Day Validated ");
+        }
 
         private void buttonSaveOH_Click(object sender, EventArgs e)
         {
@@ -89,7 +93,6 @@ namespace WinFormsApp1
                 textLocationId.Focus();
             }
         }
-
 
     }
 
