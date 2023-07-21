@@ -31,7 +31,7 @@
             buttonMainMenuOH = new Button();
             label1 = new Label();
             labelLocationID = new Label();
-            textBox1 = new TextBox();
+            textLocationName = new TextBox();
             labelDay = new Label();
             textBox2 = new TextBox();
             labelStartTime = new Label();
@@ -70,13 +70,13 @@
             labelLocationID.TabIndex = 5;
             labelLocationID.Text = "Location ID";
             // 
-            // textBox1
+            // textLocationName
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(483, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(252, 31);
-            textBox1.TabIndex = 15;
+            textLocationName.Enabled = false;
+            textLocationName.Location = new Point(483, 114);
+            textLocationName.Name = "textLocationName";
+            textLocationName.Size = new Size(252, 31);
+            textLocationName.TabIndex = 15;
             // 
             // labelDay
             // 
@@ -158,7 +158,7 @@
             Controls.Add(labelStartTime);
             Controls.Add(textBox2);
             Controls.Add(labelDay);
-            Controls.Add(textBox1);
+            Controls.Add(textLocationName);
             Controls.Add(labelLocationID);
             Controls.Add(label1);
             Controls.Add(buttonMainMenuOH);
@@ -173,7 +173,7 @@
         private Button buttonMainMenuOH;
         private Label label1;
         private Label labelLocationID;
-        private TextBox textBox1;
+        private TextBox textLocationName;
         private Label labelDay;
         private TextBox textBox2;
         private Label labelStartTime;

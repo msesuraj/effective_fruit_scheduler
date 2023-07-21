@@ -12,6 +12,10 @@ namespace WinFormsApp1
 {
     public partial class OpeningHours : Form
     {
+        string fileLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Location.csv";
+        StreamReader csvDataLocation = null;//creates a variable to load the data from the csv file
+        List<LocationRecord> LocationRecords = new List<LocationRecord>();
+    
         public OpeningHours()
         {
             InitializeComponent();
@@ -41,10 +45,38 @@ namespace WinFormsApp1
             //validate_textLocationId_empty();
             if (! (string.IsNullOrWhiteSpace(textLocationId.Text)))
             {
-                MessageBox.Show("Location Id Not blank");
-               // textLocationId.Focus();
-        
+
+                if (File.Exists(fileLocation)) // tests to see if file exists      
+                    {
+                        csvDataLocation = new StreamReader(File.OpenRead(fileLocation));
+                    }
+                    else
+                    {
+                        MessageBox.Show(fileLocation);
+                        MessageBox.Show("Location.csv Data File not found");
+                        textLocationId.Focus();
+                    }
                
+                List<string> LineValues = new List<string>();
+                string line;
+                while ((line = csvDataLocation.ReadLine()) != null)
+                {
+                    // Console.WriteLine(line);
+                    LineValues = line.Split(',').ToList();
+                    if (textLocationId.Text == LineValues[0].ToString())
+                    {
+                        textLocationName.Text = LineValues[1].ToString();
+                        // textShopName.Text = LineValues[1].ToString();
+                        // textShopAddress.Text = LineValues[2].ToString();
+                        // textShopDayStart.Text = LineValues[3].ToString();
+                        // textShopDayEnd.Text = LineValues[4].ToString();
+                        return;
+                    }
+                }
+                MessageBox.Show("Invalid Location ID");
+                textLocationId.Text = "";
+                textLocationName.Text = "";
+                textLocationId.Focus();
             }
         }
 
