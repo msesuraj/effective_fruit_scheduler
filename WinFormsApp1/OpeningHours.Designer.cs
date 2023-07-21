@@ -47,7 +47,7 @@
             buttonMainMenuOH.Location = new Point(688, 22);
             buttonMainMenuOH.Name = "buttonMainMenuOH";
             buttonMainMenuOH.Size = new Size(112, 34);
-            buttonMainMenuOH.TabIndex = 2;
+            buttonMainMenuOH.TabIndex = 10;
             buttonMainMenuOH.Text = "Main Menu";
             buttonMainMenuOH.UseVisualStyleBackColor = true;
             buttonMainMenuOH.Click += buttonMainMenuOH_Click;

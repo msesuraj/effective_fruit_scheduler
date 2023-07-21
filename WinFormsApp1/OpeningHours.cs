@@ -38,23 +38,27 @@ namespace WinFormsApp1
 
         private void textLocationId_Validated(object sender, EventArgs e)
         {
-            validate_textLocationId_empty();
+            //validate_textLocationId_empty();
+            if (! (string.IsNullOrWhiteSpace(textLocationId.Text)))
+            {
+                MessageBox.Show("Location Id Not blank");
+               // textLocationId.Focus();
+        
+               
+            }
         }
 
         private void buttonSaveOH_Click(object sender, EventArgs e)
         {
-          // validating all textbox 
-          validate_textLocationId_empty();
-        }
-
-        private void validate_textLocationId_empty() 
-        {
+            // validating all textbox 
             if (string.IsNullOrWhiteSpace(textLocationId.Text))
             {
                 MessageBox.Show("Location Id Cannot be blank");
                 textLocationId.Focus();
             }
         }
+
+
     }
 
     public class LocationRecord
