@@ -169,17 +169,23 @@ namespace WinFormsApp1
                   //sb = new StringBuilder();
                 var line = "";
                 //line += prop.GetValue(obj, null) + ",";
-                line += textLocationId.Text + ",";
+                line += textLocationId.Text + ","  + textDay.Text + "," + textStartTime.Text + "," + textEndTime.Text + ",";
             // foreach (var prop in info)
             // {
             //     line += prop.GetValue(textLocationId.Text, null) + ",";
             // }
-            line = line.Substring(0, line.Length - 1);
+           // line = line.Substring(0, line.Length - 1);
                 sb.AppendLine(line);
                 TextWriter sw = new StreamWriter(fileOpeningHour, true);
                 sw.Write(sb.ToString());
                 sw.Close();
             // }
+            MessageBox.Show("New Opening Hour Record Saved");
+            textLocationId.Text = "";   
+            textDay.Text = "";
+            textStartTime.Text = "";
+            textEndTime.Text = "";
+            textLocationId.Focus();
         }
 
     }
