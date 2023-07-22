@@ -153,6 +153,31 @@ namespace WinFormsApp1
                 textEndTime.Focus();
                 return;
             }
+            // Now writing ito the OpeningHours.csv file
+            // openingHoursRecords.Add(new OpeningHoursRecord
+            // {
+            //     LocationId = textLocationId.Text,
+            //     Day = textDay.Text,
+            //     StartTime = textStartTime.Text,
+            //     EndTime = textEndTime.Text
+            // });
+            // foreach (var obj in openingHoursRecords)
+            // {
+                  var sb = new StringBuilder();
+                  //sb = new StringBuilder();
+                var line = "";
+                //line += prop.GetValue(obj, null) + ",";
+                line += textLocationId.Text + ",";
+            // foreach (var prop in info)
+            // {
+            //     line += prop.GetValue(textLocationId.Text, null) + ",";
+            // }
+            line = line.Substring(0, line.Length - 1);
+                sb.AppendLine(line);
+                TextWriter sw = new StreamWriter(fileOpeningHour, true);
+                sw.Write(sb.ToString());
+                sw.Close();
+            // }
         }
 
     }
