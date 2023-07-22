@@ -12,10 +12,12 @@ namespace WinFormsApp1
 {
     public partial class OpeningHours : Form
     {
-        string fileLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Location.csv";
+        string fileLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Locations.csv";
         StreamReader csvDataLocation = null;//creates a variable to load the data from the csv file
         List<LocationRecord> LocationRecords = new List<LocationRecord>();
-
+        string fileOpeningHour = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "OpeningHours.csv";
+        StreamReader csvDataOpeningHour = null;//creates a variable to load the data from the csv file
+        List<OpeningHourRecord> OpeningHourRecords = new List<OpeningHourRecord>();
         public OpeningHours()
         {
             InitializeComponent();
@@ -42,7 +44,6 @@ namespace WinFormsApp1
 
         private void textLocationId_Validated(object sender, EventArgs e)
         {
-            //validate_textLocationId_empty();
             if (!(string.IsNullOrWhiteSpace(textLocationId.Text)))
             {
 
@@ -81,7 +82,48 @@ namespace WinFormsApp1
         }
         private void textDay_Validated(object sender, EventArgs e)
         {
-            MessageBox.Show("Day Validated ");
+            if (!(string.IsNullOrWhiteSpace(textDay.Text)))
+            {
+                if (string.IsNullOrWhiteSpace(textLocationId.Text))
+                {
+                    MessageBox.Show("Please enter a valid Location ID");
+                    textLocationId.Focus();
+                }
+                if (textDay.Text == "Monday" || textDay.Text == "Tuesday" || textDay.Text == "Wednesday" || textDay.Text == "Thursday" || textDay.Text == "Friday" || textDay.Text == "Saturday" || textDay.Text == "Sunday")
+                {
+                    // check to make sure location id and Day already existing in the file
+                    if (File.Exists(fileOpeningHour)) // tests to see if file exists      
+                    {
+                        csvDataOpeningHour = new StreamReader(File.OpenRead(fileOpeningHour));
+                        List<string> LineValues = new List<string>();
+                        string line;
+                        while ((line = csvDataOpeningHour.ReadLine()) != null)
+                        {
+                            LineValues = line.Split(',').ToList();
+                            // checking location id and day already exist in the file
+                            if ((textLocationId.Text == LineValues[0].ToString()) && (textDay.Text == LineValues[1].ToString())) 
+                            {
+                                MessageBox.Show("Location ID and Day already existing in the file");
+                                textDay.Text = "";
+                                textDay.Focus();
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(fileOpeningHour);
+                        MessageBox.Show("OpeningHour.csv Data File not found");
+                        textDay.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Day: Must be Monday/Tuesday/Wednesday/Thurday/Friday/Saturday/Sunday");
+                    textDay.Text = "";
+                    textDay.Focus();
+                }
+            }
         }
 
         private void buttonSaveOH_Click(object sender, EventArgs e)
@@ -104,5 +146,13 @@ namespace WinFormsApp1
         public string? ShopAddress { get; set; }
         public string? ShopDayStart { get; set; }
         public string? ShopDayEnd { get; set; }
+    }
+    public class OpeningHourRecord
+    {
+        //This defines the login dettails records structure//
+        public string? LocationId { get; set; }
+        public string? Day { get; set; }
+        public string? StartTime { get; set; }
+        public string? EndTime { get; set; }
     }
 }
