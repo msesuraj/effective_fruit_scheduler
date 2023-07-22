@@ -106,9 +106,11 @@ namespace WinFormsApp1
                                 MessageBox.Show("Location ID and Day already existing in the file");
                                 textDay.Text = "";
                                 textDay.Focus();
+                                csvDataOpeningHour.Close();
                                 return;
                             }
                         }
+                        csvDataOpeningHour.Close();
                     }
                     else
                     {
