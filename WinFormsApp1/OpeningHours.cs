@@ -133,6 +133,25 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Location Id Cannot be blank");
                 textLocationId.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(textDay.Text))
+            {
+                MessageBox.Show("Day Cannot be blank");
+                textDay.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(textStartTime.Text))
+            {
+                MessageBox.Show("Start Time Cannot be blank");
+                textStartTime.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(textEndTime.Text))
+            {
+                MessageBox.Show("End Time Cannot be blank");
+                textEndTime.Focus();
+                return;
             }
         }
 
