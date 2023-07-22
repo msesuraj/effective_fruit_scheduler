@@ -1980,7 +1980,7 @@
   <data name="pictureShiftScheduler.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAxGtJREFUeF7t/QmcZNW13olavja+9r2+7aHdtu9ru20/289tt7vfbT37ua/lLlVm
+        DAAACwwBP0AiyAAAxGtJREFUeF7t/QmcZNW13olavja+9r2+7aHdtu9ru20/289tt7vfbT37ua/lLlVm
         VlVm1piRlQUFRTHPCBAICTELIUAgQEIgxCAhIQRoQCCEhBASEjNoHpBACCEJMQmKAjRcW/f66vT+IteO
         2rHPd84e4kTEyay1fr//ryrjrO/be599ItaKzBj+ytTU6/cw/HXDX8kJ6EQPH4v6RQZ0ole/jIBO9OqX
         EdCJXv0yAjrRq19GQCd69csI6ESf55eU7AV0os8b3AvoRK9+GQGd6NUvI6ATvfplBHSiV7+MgE706pcR
@@ -2824,7 +2824,7 @@
   <data name="pictureReports.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAg9NJREFUeF7tvXusftt619W9fuvsc04vtKfQljalPUo5XIqFNg3IscoliP8AQbTx
+        DAAACwwBP0AiyAAAg9NJREFUeF7tvXusftt619W9fuvsc04vtKfQljalPUo5XIqFNg3IscoliP8AQbTx
         wDkoYjh4VNAEQbYUNYpCQCEB1IgS7heNKdcY96bcEiI3NchFDXeVm4BALCWWQuvzfdd3vmfMOcec43me
         OeZ85/uu7zf5Jme9Y3y+Y4w5n/0bz2/vddb6jB/+w3/I2+b3mT8jI3DkkTNYeU6BI6+8hMCRV15C4Mgr
         LyFw5JWXEDjyyksIHPlcXmjyRODI5xafCBx55SUEjrzyEgJHXnkJgSOvvITAkVdeQuDIK8+r0ORC4LhY
@@ -3393,7 +3393,7 @@
   <data name="pictureEmployees.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAG+3SURBVHhe7d0H
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAG+3SURBVHhe7d0H
         mB1V+QZwdrObTdtkN733XkjvvYdU0ntPSCMh9A6hJpAQSAJSLEgHkSa9o4ACigIKiqBgV0T/iqIi6vl/
         34VogHd3z7lz5s7Mnfd9nt+zgWzmzj3nzDn3zpw5cxjDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzD
         MAzDMAzDMAzDMAzDMAzDMAzDMAzD5EEKRB+xRlwiHhZviF+LP4p/ib+IH4tnxO3idDFOlIokpEh0E/PF

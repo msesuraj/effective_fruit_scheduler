@@ -40,6 +40,7 @@
             pictureEmployees = new PictureBox();
             buttonPolicy = new Button();
             buttonOpeningHours = new Button();
+            buttonEmployees = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxOpeningHours).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCalendar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureShiftTime).BeginInit();
@@ -148,7 +149,7 @@
             // 
             // buttonOpeningHours
             // 
-            buttonOpeningHours.Location = new Point(38, 313);
+            buttonOpeningHours.Location = new Point(39, 321);
             buttonOpeningHours.Name = "buttonOpeningHours";
             buttonOpeningHours.Size = new Size(152, 34);
             buttonOpeningHours.TabIndex = 10;
@@ -156,11 +157,23 @@
             buttonOpeningHours.UseVisualStyleBackColor = true;
             buttonOpeningHours.Click += buttonOpeningHours_Click;
             // 
+            // buttonEmployees
+            // 
+            buttonEmployees.Location = new Point(564, 321);
+            buttonEmployees.Name = "buttonEmployees";
+            buttonEmployees.RightToLeft = RightToLeft.Yes;
+            buttonEmployees.Size = new Size(152, 34);
+            buttonEmployees.TabIndex = 11;
+            buttonEmployees.Text = "Employees";
+            buttonEmployees.UseVisualStyleBackColor = true;
+            buttonEmployees.Click += buttonEmployees_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 519);
+            Controls.Add(buttonEmployees);
             Controls.Add(buttonOpeningHours);
             Controls.Add(buttonPolicy);
             Controls.Add(pictureEmployees);
@@ -197,5 +210,6 @@
         private Button button1;
         private Button buttonPolicy;
         private Button buttonOpeningHours;
+        private Button buttonEmployees;
     }
 }

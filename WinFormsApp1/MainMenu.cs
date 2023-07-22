@@ -41,5 +41,16 @@ namespace WinFormsApp1
             openinghour.Show();
             this.Hide();
         }
+
+        // private void pictureEmployee_Click(object sender, EventArgs e)
+        // {
+         
+        // }
+        private void buttonEmployees_Click(object sender, EventArgs e)
+        {
+            Employees employee = new Employees();
+            employee.Show();
+            this.Hide();
+        }
     }
 }
