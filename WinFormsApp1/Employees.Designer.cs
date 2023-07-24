@@ -70,6 +70,8 @@
             textEmployeeNumber.Name = "textEmployeeNumber";
             textEmployeeNumber.Size = new Size(150, 31);
             textEmployeeNumber.TabIndex = 6;
+            textEmployeeNumber.TextChanged += textEmployeeNumber_TextChanged;
+            textEmployeeNumber.Validated += textEmployeeNumber_Validated;
             // 
             // labelEmployeeName
             // 
