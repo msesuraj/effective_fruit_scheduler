@@ -34,6 +34,17 @@
             textEmployeeNumber = new TextBox();
             labelEmployeeName = new Label();
             textEmployeeName = new TextBox();
+            label2 = new Label();
+            textPhoneNumber = new TextBox();
+            label3 = new Label();
+            textAddress = new TextBox();
+            label4 = new Label();
+            dateTimePickerHireDate = new DateTimePicker();
+            label5 = new Label();
+            dateTimePickerTerminationDate = new DateTimePicker();
+            label6 = new Label();
+            textBox1 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // buttonMainMenuE
@@ -66,7 +77,7 @@
             // 
             // textEmployeeNumber
             // 
-            textEmployeeNumber.Location = new Point(247, 96);
+            textEmployeeNumber.Location = new Point(214, 93);
             textEmployeeNumber.Name = "textEmployeeNumber";
             textEmployeeNumber.Size = new Size(150, 31);
             textEmployeeNumber.TabIndex = 6;
@@ -89,11 +100,119 @@
             textEmployeeName.Size = new Size(366, 31);
             textEmployeeName.TabIndex = 8;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(36, 181);
+            label2.Name = "label2";
+            label2.Size = new Size(132, 25);
+            label2.TabIndex = 9;
+            label2.Text = "Phone Number";
+            // 
+            // textPhoneNumber
+            // 
+            textPhoneNumber.Location = new Point(214, 181);
+            textPhoneNumber.Name = "textPhoneNumber";
+            textPhoneNumber.Size = new Size(150, 31);
+            textPhoneNumber.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(479, 187);
+            label3.Name = "label3";
+            label3.Size = new Size(77, 25);
+            label3.TabIndex = 11;
+            label3.Text = "Address";
+            // 
+            // textAddress
+            // 
+            textAddress.Location = new Point(647, 178);
+            textAddress.Name = "textAddress";
+            textAddress.Size = new Size(366, 31);
+            textAddress.TabIndex = 12;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(36, 261);
+            label4.Name = "label4";
+            label4.Size = new Size(86, 25);
+            label4.TabIndex = 13;
+            label4.Text = "Hire Date";
+            // 
+            // dateTimePickerHireDate
+            // 
+            dateTimePickerHireDate.CustomFormat = "DD-Mon-YY";
+            dateTimePickerHireDate.Format = DateTimePickerFormat.Short;
+            dateTimePickerHireDate.Location = new Point(214, 261);
+            dateTimePickerHireDate.Name = "dateTimePickerHireDate";
+            dateTimePickerHireDate.Size = new Size(123, 31);
+            dateTimePickerHireDate.TabIndex = 15;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(479, 267);
+            label5.Name = "label5";
+            label5.Size = new Size(146, 25);
+            label5.TabIndex = 16;
+            label5.Text = "Termination Date";
+            // 
+            // dateTimePickerTerminationDate
+            // 
+            dateTimePickerTerminationDate.CustomFormat = " ";
+            dateTimePickerTerminationDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerTerminationDate.Location = new Point(647, 262);
+            dateTimePickerTerminationDate.Name = "dateTimePickerTerminationDate";
+            dateTimePickerTerminationDate.Size = new Size(123, 31);
+            dateTimePickerTerminationDate.TabIndex = 17;
+            dateTimePickerTerminationDate.Value = new DateTime(2023, 7, 25, 22, 25, 53, 0);
+            dateTimePickerTerminationDate.ValueChanged += dateTimePickerTerminationDate_ValueChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(36, 330);
+            label6.Name = "label6";
+            label6.Size = new Size(43, 25);
+            label6.TabIndex = 18;
+            label6.Text = "TFN";
+            label6.UseWaitCursor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(214, 324);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(150, 31);
+            textBox1.TabIndex = 19;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(513, 404);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 20;
+            button1.Text = "Save";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += buttonSave_Click;
+            // 
             // Employees
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1062, 450);
+            Controls.Add(button1);
+            Controls.Add(textBox1);
+            Controls.Add(label6);
+            Controls.Add(dateTimePickerTerminationDate);
+            Controls.Add(label5);
+            Controls.Add(dateTimePickerHireDate);
+            Controls.Add(label4);
+            Controls.Add(textAddress);
+            Controls.Add(label3);
+            Controls.Add(textPhoneNumber);
+            Controls.Add(label2);
             Controls.Add(textEmployeeName);
             Controls.Add(labelEmployeeName);
             Controls.Add(textEmployeeNumber);
@@ -114,5 +233,16 @@
         private TextBox textEmployeeNumber;
         private Label labelEmployeeName;
         private TextBox textEmployeeName;
+        private Label label2;
+        private TextBox textPhoneNumber;
+        private Label label3;
+        private TextBox textAddress;
+        private Label label4;
+        private DateTimePicker dateTimePickerHireDate;
+        private Label label5;
+        private DateTimePicker dateTimePickerTerminationDate;
+        private Label label6;
+        private TextBox textBox1;
+        private Button button1;
     }
 }
