@@ -43,7 +43,7 @@
             label5 = new Label();
             dateTimePickerTerminationDate = new DateTimePicker();
             label6 = new Label();
-            textBox1 = new TextBox();
+            textTaxFileNumber = new TextBox();
             button1 = new Button();
             SuspendLayout();
             // 
@@ -167,7 +167,7 @@
             dateTimePickerTerminationDate.Name = "dateTimePickerTerminationDate";
             dateTimePickerTerminationDate.Size = new Size(123, 31);
             dateTimePickerTerminationDate.TabIndex = 17;
-            dateTimePickerTerminationDate.Value = new DateTime(2023, 7, 25, 22, 25, 53, 0);
+            dateTimePickerTerminationDate.Value = new DateTime(9998, 12, 30, 22, 25, 0, 0);
             dateTimePickerTerminationDate.ValueChanged += dateTimePickerTerminationDate_ValueChanged;
             // 
             // label6
@@ -180,12 +180,12 @@
             label6.Text = "TFN";
             label6.UseWaitCursor = true;
             // 
-            // textBox1
+            // textTaxFileNumber
             // 
-            textBox1.Location = new Point(214, 324);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 19;
+            textTaxFileNumber.Location = new Point(214, 324);
+            textTaxFileNumber.Name = "textTaxFileNumber";
+            textTaxFileNumber.Size = new Size(150, 31);
+            textTaxFileNumber.TabIndex = 19;
             // 
             // button1
             // 
@@ -203,7 +203,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1062, 450);
             Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(textTaxFileNumber);
             Controls.Add(label6);
             Controls.Add(dateTimePickerTerminationDate);
             Controls.Add(label5);
@@ -242,7 +242,7 @@
         private Label label5;
         private DateTimePicker dateTimePickerTerminationDate;
         private Label label6;
-        private TextBox textBox1;
+        private TextBox textTaxFileNumber;
         private Button button1;
     }
 }

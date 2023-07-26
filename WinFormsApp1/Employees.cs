@@ -81,8 +81,73 @@ namespace WinFormsApp1
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-             MessageBox.Show(dateTimePickerHireDate.Value.ToString("dd/MM/yyyy"));
-             //MessageBox.Show(dateTimePickerHireDate.Value);
+            // validating all textbox 
+            if (string.IsNullOrWhiteSpace(textEmployeeNumber.Text))
+
+            {
+                MessageBox.Show("Employee Number Cannot be blank");
+                textEmployeeNumber.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textEmployeeName.Text))
+            {
+                MessageBox.Show("Employee Name Cannot be blank");
+                textEmployeeName.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textPhoneNumber.Text))
+            {
+                MessageBox.Show("Employee Phone Number Cannot be blank");
+                textPhoneNumber.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textAddress.Text))
+            {
+                MessageBox.Show("Employee Address Cannot be blank");
+                textAddress.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textTaxFileNumber.Text))
+            {
+                MessageBox.Show("Employee Tax File Number Cannot be blank");
+                textTaxFileNumber.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(dateTimePickerHireDate.Text))
+            {
+                MessageBox.Show("Employee Hire Date Cannot be blank");
+                dateTimePickerHireDate.Focus();
+                return;
+            }
+            var sb = new StringBuilder();
+            var line = "";
+             MessageBox.Show(dateTimePickerTerminationDate.Value.ToString("dd/MM/yyyy"));
+            line += textEmployeeNumber.Text + "," + textEmployeeName.Text + "," + textPhoneNumber.Text + "," + textAddress.Text + "," + dateTimePickerHireDate.Value.ToString("dd/MM/yyyy") + ",";
+            //when the termination date is default then save the termination date as blank
+            if (dateTimePickerTerminationDate.Value.ToString("dd/MM/yyyy") == "30/12/9998")
+             line += "" + ",";
+            else
+                line += dateTimePickerTerminationDate.Value.ToString("dd/MM/yyyy") + "," ;
+            line += textTaxFileNumber.Text;
+            sb.AppendLine(line);
+            TextWriter sw = new StreamWriter(fileEmployee, true);
+            sw.Write(sb.ToString());
+            sw.Close();
+            MessageBox.Show("New Employee Record Saved");
+            // clearing all textbox
+            textEmployeeNumber.Text = "";
+            textEmployeeName.Text = "";
+            textPhoneNumber.Text = "";
+            textAddress.Text = "";
+            textTaxFileNumber.Text = "";
+            dateTimePickerHireDate.Text = "";
+            dateTimePickerTerminationDate.CustomFormat = " "; ;
+            textEmployeeNumber.Focus();
         }
 
         private void dateTimePickerTerminationDate_ValueChanged(object sender, EventArgs e)
