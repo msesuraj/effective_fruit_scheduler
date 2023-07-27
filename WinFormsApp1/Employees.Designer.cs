@@ -220,7 +220,7 @@
             Controls.Add(label1);
             Controls.Add(buttonMainMenuE);
             Name = "Employees";
-            Text = "FV&F Employee";
+            Text = "EF&V Employee";
             ResumeLayout(false);
             PerformLayout();
         }

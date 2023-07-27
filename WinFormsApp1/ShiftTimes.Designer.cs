@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             buttonMainMenuST = new Button();
+            buttonSaveSF = new Button();
             SuspendLayout();
             // 
             // label1
@@ -52,15 +53,25 @@
             buttonMainMenuST.UseVisualStyleBackColor = true;
             buttonMainMenuST.Click += buttonMainMenuST_Click;
             // 
+            // buttonSaveSF
+            // 
+            buttonSaveSF.Location = new Point(672, 422);
+            buttonSaveSF.Name = "buttonSaveSF";
+            buttonSaveSF.Size = new Size(112, 34);
+            buttonSaveSF.TabIndex = 21;
+            buttonSaveSF.Text = "Save";
+            buttonSaveSF.UseVisualStyleBackColor = true;
+            // 
             // ShiftTimes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 506);
+            Controls.Add(buttonSaveSF);
             Controls.Add(buttonMainMenuST);
             Controls.Add(label1);
             Name = "ShiftTimes";
-            Text = "FV&F ShiftTimes";
+            Text = "EF&V Shift Times";
             ResumeLayout(false);
         }
 
@@ -69,5 +80,6 @@
         private Label label1;
         private Button buttonMainMenuE;
         private Button buttonMainMenuST;
+        private Button buttonSaveSF;
     }
 }
