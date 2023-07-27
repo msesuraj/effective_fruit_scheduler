@@ -44,12 +44,19 @@ namespace WinFormsApp1
 
         // private void pictureEmployee_Click(object sender, EventArgs e)
         // {
-         
+
         // }
         private void buttonEmployees_Click(object sender, EventArgs e)
         {
             Employees employee = new Employees();
             employee.Show();
+            this.Hide();
+        }
+
+        private void buttonShiftTimes_Click(object sender, EventArgs e)
+        {
+            ShiftTimes shifttime = new ShiftTimes();
+            shifttime.Show();
             this.Hide();
         }
     }

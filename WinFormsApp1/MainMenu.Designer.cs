@@ -41,6 +41,7 @@
             buttonPolicy = new Button();
             buttonOpeningHours = new Button();
             buttonEmployees = new Button();
+            buttonShiftTimes = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxOpeningHours).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCalendar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureShiftTime).BeginInit();
@@ -168,11 +169,23 @@
             buttonEmployees.UseVisualStyleBackColor = true;
             buttonEmployees.Click += buttonEmployees_Click;
             // 
+            // buttonShiftTimes
+            // 
+            buttonShiftTimes.Location = new Point(396, 321);
+            buttonShiftTimes.Name = "buttonShiftTimes";
+            buttonShiftTimes.RightToLeft = RightToLeft.Yes;
+            buttonShiftTimes.Size = new Size(152, 34);
+            buttonShiftTimes.TabIndex = 12;
+            buttonShiftTimes.Text = "Shift Times";
+            buttonShiftTimes.UseVisualStyleBackColor = true;
+            buttonShiftTimes.Click += buttonShiftTimes_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 519);
+            Controls.Add(buttonShiftTimes);
             Controls.Add(buttonEmployees);
             Controls.Add(buttonOpeningHours);
             Controls.Add(buttonPolicy);
@@ -211,5 +224,6 @@
         private Button buttonPolicy;
         private Button buttonOpeningHours;
         private Button buttonEmployees;
+        private Button buttonShiftTimes;
     }
 }
