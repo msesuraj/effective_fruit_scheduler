@@ -126,7 +126,7 @@ namespace WinFormsApp1
             }
             var sb = new StringBuilder();
             var line = "";
-             MessageBox.Show(dateTimePickerTerminationDate.Value.ToString("dd/MM/yyyy"));
+             //MessageBox.Show(dateTimePickerTerminationDate.Value.ToString("dd/MM/yyyy"));
             line += textEmployeeNumber.Text + "," + textEmployeeName.Text + "," + textPhoneNumber.Text + "," + textAddress.Text + "," + dateTimePickerHireDate.Value.ToString("dd/MM/yyyy") + ",";
             //when the termination date is default then save the termination date as blank
             if (dateTimePickerTerminationDate.Value.ToString("dd/MM/yyyy") == "30/12/9998")
