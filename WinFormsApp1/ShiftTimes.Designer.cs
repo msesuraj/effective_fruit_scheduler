@@ -40,8 +40,12 @@
             textDayStartTime = new TextBox();
             textDayEndTime = new TextBox();
             label3 = new Label();
-            textShiftNumber = new TextBox();
-            textShiftName = new TextBox();
+            label4 = new Label();
+            comboBoxWorkType = new ComboBox();
+            comboBoxShift = new ComboBox();
+            label5 = new Label();
+            textBoxShiftStartTime = new TextBox();
+            textEndTime = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -66,7 +70,7 @@
             // 
             // buttonSaveSF
             // 
-            buttonSaveSF.Location = new Point(672, 422);
+            buttonSaveSF.Location = new Point(754, 460);
             buttonSaveSF.Name = "buttonSaveSF";
             buttonSaveSF.Size = new Size(112, 34);
             buttonSaveSF.TabIndex = 21;
@@ -151,28 +155,67 @@
             label3.TabIndex = 29;
             label3.Text = "Shift";
             // 
-            // textShiftNumber
+            // label4
             // 
-            textShiftNumber.Location = new Point(186, 252);
-            textShiftNumber.Name = "textShiftNumber";
-            textShiftNumber.Size = new Size(68, 31);
-            textShiftNumber.TabIndex = 30;
+            label4.AutoSize = true;
+            label4.Location = new Point(59, 315);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 25);
+            label4.TabIndex = 32;
+            label4.Text = "WorkType";
             // 
-            // textShiftName
+            // comboBoxWorkType
             // 
-            textShiftName.Enabled = false;
-            textShiftName.Location = new Point(408, 252);
-            textShiftName.Name = "textShiftName";
-            textShiftName.Size = new Size(190, 31);
-            textShiftName.TabIndex = 31;
+            comboBoxWorkType.FormattingEnabled = true;
+            comboBoxWorkType.Items.AddRange(new object[] { "Teller\t", "Stock Member" });
+            comboBoxWorkType.Location = new Point(186, 315);
+            comboBoxWorkType.Name = "comboBoxWorkType";
+            comboBoxWorkType.Size = new Size(182, 33);
+            comboBoxWorkType.TabIndex = 33;
+            // 
+            // comboBoxShift
+            // 
+            comboBoxShift.FormattingEnabled = true;
+            comboBoxShift.Items.AddRange(new object[] { "Morning", "Afternoon" });
+            comboBoxShift.Location = new Point(186, 244);
+            comboBoxShift.Name = "comboBoxShift";
+            comboBoxShift.Size = new Size(182, 33);
+            comboBoxShift.TabIndex = 4;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(495, 252);
+            label5.Name = "label5";
+            label5.Size = new Size(172, 25);
+            label5.TabIndex = 34;
+            label5.Text = "Shift Start & End Time";
+            // 
+            // textBoxShiftStartTime
+            // 
+            textBoxShiftStartTime.Location = new Point(673, 252);
+            textBoxShiftStartTime.Name = "textBoxShiftStartTime";
+            textBoxShiftStartTime.Size = new Size(92, 31);
+            textBoxShiftStartTime.TabIndex = 5;
+            // 
+            // textEndTime
+            // 
+            textEndTime.Location = new Point(816, 252);
+            textEndTime.Name = "textEndTime";
+            textEndTime.Size = new Size(92, 31);
+            textEndTime.TabIndex = 6;
             // 
             // ShiftTimes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 506);
-            Controls.Add(textShiftName);
-            Controls.Add(textShiftNumber);
+            Controls.Add(textEndTime);
+            Controls.Add(textBoxShiftStartTime);
+            Controls.Add(label5);
+            Controls.Add(comboBoxShift);
+            Controls.Add(comboBoxWorkType);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(textDayEndTime);
             Controls.Add(textDayStartTime);
@@ -206,7 +249,11 @@
         private TextBox textDayStartTime;
         private TextBox textDayEndTime;
         private Label label3;
-        private TextBox textShiftNumber;
-        private TextBox textShiftName;
+        private Label label4;
+        private ComboBox comboBoxWorkType;
+        private ComboBox comboBoxShift;
+        private Label label5;
+        private TextBox textBoxShiftStartTime;
+        private TextBox textEndTime;
     }
 }

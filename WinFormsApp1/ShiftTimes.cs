@@ -104,7 +104,6 @@ namespace WinFormsApp1
                             // checking location id and day already exist in the file
                             if ((textLocationId.Text == LineValues[0].ToString()) && (textDay.Text == LineValues[1].ToString()))
                             {
-                                MessageBox.Show("Location ID and Day   existing in the file");
                                 textDayStartTime.Text = LineValues[2].ToString();
                                 textDayEndTime.Text = LineValues[3].ToString();
                                 //textDay.Focus();
@@ -133,6 +132,31 @@ namespace WinFormsApp1
                 }
             }
         }
+
+        // private void textShiftNumber_Validated(object sender, EventArgs e)
+        // {
+        //     if (!(string.IsNullOrWhiteSpace(textShiftNumber.Text)))
+        //     {
+        //         if (!(textShiftNumber.Text == "1" || textShiftNumber.Text == "2"))
+        //         {
+        //             MessageBox.Show("Invalid Shift Number: Must be 1/2");
+        //             textShiftNumber.Text = "";
+        //             textShiftNumber.Focus();
+        //         }
+        //         else
+        //         {
+        //             if (textShiftNumber.Text == "1")
+        //             {
+        //                 textShiftName.Text = "Morning";
+        //             }
+        //             else
+        //             {
+        //                 textShiftName.Text = "Afternoon";
+        //             }
+        //         }
+
+        //     }
+        // }
 
     }
 }
