@@ -39,6 +39,9 @@
             label2 = new Label();
             textDayStartTime = new TextBox();
             textDayEndTime = new TextBox();
+            label3 = new Label();
+            textShiftNumber = new TextBox();
+            textShiftName = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -139,11 +142,38 @@
             textDayEndTime.Size = new Size(93, 31);
             textDayEndTime.TabIndex = 28;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(59, 252);
+            label3.Name = "label3";
+            label3.Size = new Size(48, 25);
+            label3.TabIndex = 29;
+            label3.Text = "Shift";
+            // 
+            // textShiftNumber
+            // 
+            textShiftNumber.Location = new Point(186, 252);
+            textShiftNumber.Name = "textShiftNumber";
+            textShiftNumber.Size = new Size(68, 31);
+            textShiftNumber.TabIndex = 30;
+            // 
+            // textShiftName
+            // 
+            textShiftName.Enabled = false;
+            textShiftName.Location = new Point(408, 252);
+            textShiftName.Name = "textShiftName";
+            textShiftName.Size = new Size(190, 31);
+            textShiftName.TabIndex = 31;
+            // 
             // ShiftTimes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 506);
+            Controls.Add(textShiftName);
+            Controls.Add(textShiftNumber);
+            Controls.Add(label3);
             Controls.Add(textDayEndTime);
             Controls.Add(textDayStartTime);
             Controls.Add(label2);
@@ -175,5 +205,8 @@
         private Label label2;
         private TextBox textDayStartTime;
         private TextBox textDayEndTime;
+        private Label label3;
+        private TextBox textShiftNumber;
+        private TextBox textShiftName;
     }
 }
