@@ -31,6 +31,11 @@
             label1 = new Label();
             buttonMainMenuST = new Button();
             buttonSaveSF = new Button();
+            labelDayST = new Label();
+            textDay = new TextBox();
+            labelLocationID = new Label();
+            textLocationId = new TextBox();
+            textLocationName = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -61,18 +66,68 @@
             buttonSaveSF.TabIndex = 21;
             buttonSaveSF.Text = "Save";
             buttonSaveSF.UseVisualStyleBackColor = true;
+            buttonSaveSF.Click += buttonSaveSF_Click;
+            // 
+            // labelDayST
+            // 
+            labelDayST.AutoSize = true;
+            labelDayST.Location = new Point(59, 184);
+            labelDayST.Name = "labelDayST";
+            labelDayST.Size = new Size(43, 25);
+            labelDayST.TabIndex = 23;
+            labelDayST.Text = "Day";
+            // 
+            // textDay
+            // 
+            textDay.Location = new Point(186, 184);
+            textDay.Name = "textDay";
+            textDay.Size = new Size(252, 31);
+            textDay.TabIndex = 3;
+            textDay.TextChanged += textDay_TextChanged;
+            textDay.Validated += textDay_Validated;
+            // 
+            // labelLocationID
+            // 
+            labelLocationID.AutoSize = true;
+            labelLocationID.Location = new Point(59, 121);
+            labelLocationID.Name = "labelLocationID";
+            labelLocationID.Size = new Size(102, 25);
+            labelLocationID.TabIndex = 25;
+            labelLocationID.Text = "Location ID";
+            // 
+            // textLocationId
+            // 
+            textLocationId.Location = new Point(186, 118);
+            textLocationId.Name = "textLocationId";
+            textLocationId.Size = new Size(252, 31);
+            textLocationId.TabIndex = 1;
+            textLocationId.Validated += textLocationId_Validated;
+            // 
+            // textLocationName
+            // 
+            textLocationName.Enabled = false;
+            textLocationName.Location = new Point(555, 121);
+            textLocationName.Name = "textLocationName";
+            textLocationName.Size = new Size(252, 31);
+            textLocationName.TabIndex = 2;
             // 
             // ShiftTimes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 506);
+            Controls.Add(textLocationName);
+            Controls.Add(textLocationId);
+            Controls.Add(labelLocationID);
+            Controls.Add(textDay);
+            Controls.Add(labelDayST);
             Controls.Add(buttonSaveSF);
             Controls.Add(buttonMainMenuST);
             Controls.Add(label1);
             Name = "ShiftTimes";
             Text = "EF&V Shift Times";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -81,5 +136,10 @@
         private Button buttonMainMenuE;
         private Button buttonMainMenuST;
         private Button buttonSaveSF;
+        private Label labelDayST;
+        private TextBox textDay;
+        private Label labelLocationID;
+        private TextBox textLocationId;
+        private TextBox textLocationName;
     }
 }
