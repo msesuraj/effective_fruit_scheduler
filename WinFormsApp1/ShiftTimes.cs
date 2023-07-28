@@ -18,7 +18,7 @@ namespace WinFormsApp1
         string fileOpeningHour = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "OpeningHours.csv";
         StreamReader csvDataOpeningHour = null;//creates a variable to load the data from the csv file
         List<OpeningHourRecord> OpeningHourRecords = new List<OpeningHourRecord>();
-        
+
         public ShiftTimes()
         {
             InitializeComponent();
@@ -104,14 +104,19 @@ namespace WinFormsApp1
                             // checking location id and day already exist in the file
                             if ((textLocationId.Text == LineValues[0].ToString()) && (textDay.Text == LineValues[1].ToString()))
                             {
-                                MessageBox.Show("Location ID and Day already existing in the file");
-                                textDay.Text = "";
-                                textDay.Focus();
+                                MessageBox.Show("Location ID and Day   existing in the file");
+                                textDayStartTime.Text = LineValues[2].ToString();
+                                textDayEndTime.Text = LineValues[3].ToString();
+                                //textDay.Focus();
                                 csvDataOpeningHour.Close();
                                 return;
                             }
                         }
+                        MessageBox.Show("Location ID and Day for the Opening HOurs Not in OpeningHoours.csv file");
                         csvDataOpeningHour.Close();
+                        textDay.Text = "";
+                        textDay.Focus();
+                        return;
                     }
                     else
                     {

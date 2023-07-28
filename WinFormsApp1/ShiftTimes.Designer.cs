@@ -36,6 +36,9 @@
             labelLocationID = new Label();
             textLocationId = new TextBox();
             textLocationName = new TextBox();
+            label2 = new Label();
+            textDayStartTime = new TextBox();
+            textDayEndTime = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -106,16 +109,44 @@
             // textLocationName
             // 
             textLocationName.Enabled = false;
-            textLocationName.Location = new Point(555, 121);
+            textLocationName.Location = new Point(495, 121);
             textLocationName.Name = "textLocationName";
             textLocationName.Size = new Size(252, 31);
             textLocationName.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(495, 190);
+            label2.Name = "label2";
+            label2.Size = new Size(167, 25);
+            label2.TabIndex = 26;
+            label2.Text = "Day Start & End Time";
+            // 
+            // textDayStartTime
+            // 
+            textDayStartTime.Enabled = false;
+            textDayStartTime.Location = new Point(672, 187);
+            textDayStartTime.Name = "textDayStartTime";
+            textDayStartTime.Size = new Size(93, 31);
+            textDayStartTime.TabIndex = 27;
+            // 
+            // textDayEndTime
+            // 
+            textDayEndTime.Enabled = false;
+            textDayEndTime.Location = new Point(816, 190);
+            textDayEndTime.Name = "textDayEndTime";
+            textDayEndTime.Size = new Size(93, 31);
+            textDayEndTime.TabIndex = 28;
             // 
             // ShiftTimes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 506);
+            Controls.Add(textDayEndTime);
+            Controls.Add(textDayStartTime);
+            Controls.Add(label2);
             Controls.Add(textLocationName);
             Controls.Add(textLocationId);
             Controls.Add(labelLocationID);
@@ -141,5 +172,8 @@
         private Label labelLocationID;
         private TextBox textLocationId;
         private TextBox textLocationName;
+        private Label label2;
+        private TextBox textDayStartTime;
+        private TextBox textDayEndTime;
     }
 }
