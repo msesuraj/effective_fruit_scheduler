@@ -38,7 +38,96 @@ namespace WinFormsApp1
 
         private void buttonSaveSF_Click(object sender, EventArgs e)
         {
+            if ((string.IsNullOrWhiteSpace(textLocationId.Text)))
+            {
+                MessageBox.Show("Please enter a valid Location ID");
+                textLocationId.Focus();
+            }
+            else if ((string.IsNullOrWhiteSpace(textDay.Text)))
+            {
+                MessageBox.Show("Please enter a valid Day");
+                textDay.Focus();
+            }
+            else if ((string.IsNullOrWhiteSpace(comboBoxShift.Text)))
+            {
+                MessageBox.Show("Please Select Shift");
+                comboBoxShift.Focus();
+            }
+            else if ((string.IsNullOrWhiteSpace(comboBoxWorkType.Text)))
+            {
+                MessageBox.Show("Please Select WorkType");
+                comboBoxWorkType.Focus();
+            }
+            else if ((string.IsNullOrWhiteSpace(textBoxNoOfEmployeesRequired.Text)))
+            {
+                MessageBox.Show("Please enter a valid No Of Employees Required");
+                textBoxNoOfEmployeesRequired.Focus();
+            }
+            else if ((string.IsNullOrWhiteSpace(textBoxShiftStartTime.Text)))
+            {
+                MessageBox.Show("Please enter a Shift Strt Time");
+                textBoxShiftStartTime.Focus();
+            }
+            else if ((string.IsNullOrWhiteSpace(textEndTime.Text)))
+            {
+                MessageBox.Show("Please enter a Shift End Time");
+                textEndTime.Focus();
+            }
+            //    else
+            //    {
+            //         // check to make sure shift already existing in the file
+            //         if (File.Exists(fileOpeningHour)) // tests to see if file exists      
+            //         {
+            //             csvDataOpeningHour = new StreamReader(File.OpenRead(fileOpeningHour));
+            //             List<string> LineValues = new List<string>();
+            //             string line;
+            //             while ((line = csvDataOpeningHour.ReadLine()) != null)
+            //             {
+            //                 LineValues = line.Split(',').ToList();
+            //                 // checking location id and day already exist in the file
+            //                 if ((textLocationId.Text == LineValues[0].ToString()) && (textDay.Text == LineValues[1].ToString()))
+            //                 {
+            //                     MessageBox.Show("Location ID and Day already exist in the file");
+            //                     textLocationId.Focus();
+            //                     return;
+            //                 }
+            //             }
+            //         }
+            //         else
+            //         {
+            //             MessageBox.Show(fileOpeningHour);
+            //             MessageBox.Show("OpeningHours.csv Data File not found");
+            //             textLocationId.Focus();
+            //         }
 
+            //         // check to make sure location id already existing in the file
+            //         if (File.Exists(fileLocation)) // tests to see if file exists      
+            //         {
+            //             csvDataLocation = new StreamReader(File.OpenRead(fileLocation));
+            //             List<string> LineValues = new List<string>();
+            //             string line;
+            //             while ((line = csvDataLocation.ReadLine()) != null)
+            //             {
+            //                 LineValues = line.Split(',').ToList();
+            //                 // checking location id already exist in the file
+            //                 if (textLocationId.Text == LineValues[0].ToString())
+            //                 {
+            //                     //MessageBox.Show("Location ID already exist in the file");
+            //                     //textLocationId.Focus();
+            //                     //return;
+            //                     break;
+            //                 }
+            //             }
+            //         }
+            //         else
+            //         {
+            //             MessageBox.Show(fileLocation);
+            //             MessageBox.Show("Location.csv Data File not found");
+            //             textLocationId.Focus();
+            //         }
+
+            //         // check to make sure day is valid
+            //    }
         }
 
         private void textDay_TextChanged(object sender, EventArgs e)
@@ -132,31 +221,6 @@ namespace WinFormsApp1
                 }
             }
         }
-
-        // private void textShiftNumber_Validated(object sender, EventArgs e)
-        // {
-        //     if (!(string.IsNullOrWhiteSpace(textShiftNumber.Text)))
-        //     {
-        //         if (!(textShiftNumber.Text == "1" || textShiftNumber.Text == "2"))
-        //         {
-        //             MessageBox.Show("Invalid Shift Number: Must be 1/2");
-        //             textShiftNumber.Text = "";
-        //             textShiftNumber.Focus();
-        //         }
-        //         else
-        //         {
-        //             if (textShiftNumber.Text == "1")
-        //             {
-        //                 textShiftName.Text = "Morning";
-        //             }
-        //             else
-        //             {
-        //                 textShiftName.Text = "Afternoon";
-        //             }
-        //         }
-
-        //     }
-        // }
 
     }
 }

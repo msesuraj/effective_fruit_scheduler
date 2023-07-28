@@ -46,6 +46,8 @@
             label5 = new Label();
             textBoxShiftStartTime = new TextBox();
             textEndTime = new TextBox();
+            labelNumberOfStaff = new Label();
+            textBoxNoOfEmployeesRequired = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -126,9 +128,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(495, 190);
             label2.Name = "label2";
-            label2.Size = new Size(167, 25);
+            label2.Size = new Size(134, 25);
             label2.TabIndex = 26;
-            label2.Text = "Day Start & End Time";
+            label2.Text = "Opening Hours";
             // 
             // textDayStartTime
             // 
@@ -171,7 +173,7 @@
             comboBoxWorkType.Location = new Point(186, 315);
             comboBoxWorkType.Name = "comboBoxWorkType";
             comboBoxWorkType.Size = new Size(182, 33);
-            comboBoxWorkType.TabIndex = 33;
+            comboBoxWorkType.TabIndex = 7;
             // 
             // comboBoxShift
             // 
@@ -205,11 +207,29 @@
             textEndTime.Size = new Size(92, 31);
             textEndTime.TabIndex = 6;
             // 
+            // labelNumberOfStaff
+            // 
+            labelNumberOfStaff.AutoSize = true;
+            labelNumberOfStaff.Location = new Point(59, 390);
+            labelNumberOfStaff.Name = "labelNumberOfStaff";
+            labelNumberOfStaff.Size = new Size(228, 25);
+            labelNumberOfStaff.TabIndex = 35;
+            labelNumberOfStaff.Text = "No. of Employees Required";
+            // 
+            // textBoxNoOfEmployeesRequired
+            // 
+            textBoxNoOfEmployeesRequired.Location = new Point(320, 390);
+            textBoxNoOfEmployeesRequired.Name = "textBoxNoOfEmployeesRequired";
+            textBoxNoOfEmployeesRequired.Size = new Size(92, 31);
+            textBoxNoOfEmployeesRequired.TabIndex = 8;
+            // 
             // ShiftTimes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 506);
+            Controls.Add(textBoxNoOfEmployeesRequired);
+            Controls.Add(labelNumberOfStaff);
             Controls.Add(textEndTime);
             Controls.Add(textBoxShiftStartTime);
             Controls.Add(label5);
@@ -255,5 +275,7 @@
         private Label label5;
         private TextBox textBoxShiftStartTime;
         private TextBox textEndTime;
+        private Label labelNumberOfStaff;
+        private TextBox textBoxNoOfEmployeesRequired;
     }
 }
