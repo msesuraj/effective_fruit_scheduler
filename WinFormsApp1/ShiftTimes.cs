@@ -18,6 +18,9 @@ namespace WinFormsApp1
         string fileOpeningHour = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "OpeningHours.csv";
         StreamReader csvDataOpeningHour = null;//creates a variable to load the data from the csv file
         List<OpeningHourRecord> OpeningHourRecords = new List<OpeningHourRecord>();
+        string fileShiftTime = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "ShiftTimes.csv";
+        StreamReader csvDataShiftTime = null;//creates a variable to load the data from the csv file
+        List<ShiftTimeRecord> ShiftTimeRecords = new List<ShiftTimeRecord>();
 
         public ShiftTimes()
         {
@@ -73,61 +76,50 @@ namespace WinFormsApp1
                 MessageBox.Show("Please enter a Shift End Time");
                 textEndTime.Focus();
             }
-            //    else
-            //    {
-            //         // check to make sure shift already existing in the file
-            //         if (File.Exists(fileOpeningHour)) // tests to see if file exists      
-            //         {
-            //             csvDataOpeningHour = new StreamReader(File.OpenRead(fileOpeningHour));
-            //             List<string> LineValues = new List<string>();
-            //             string line;
-            //             while ((line = csvDataOpeningHour.ReadLine()) != null)
-            //             {
-            //                 LineValues = line.Split(',').ToList();
-            //                 // checking location id and day already exist in the file
-            //                 if ((textLocationId.Text == LineValues[0].ToString()) && (textDay.Text == LineValues[1].ToString()))
-            //                 {
-            //                     MessageBox.Show("Location ID and Day already exist in the file");
-            //                     textLocationId.Focus();
-            //                     return;
-            //                 }
-            //             }
-            //         }
-            //         else
-            //         {
-            //             MessageBox.Show(fileOpeningHour);
-            //             MessageBox.Show("OpeningHours.csv Data File not found");
-            //             textLocationId.Focus();
-            //         }
+            else
+            {
+                // check to make sure shift already existing in the file
+                if (File.Exists(fileShiftTime)) // tests to see if file exists      
+                {
+                    csvDataShiftTime = new StreamReader(File.OpenRead(fileShiftTime));
+                    List<string> LineValues = new List<string>();
+                    string line;
+                    while ((line = csvDataShiftTime.ReadLine()) != null)
+                    {
+                        // MessageBox.Show(textLocationId.Text);
+                        // MessageBox.Show(textDay.Text);
+                        // MessageBox.Show(comboBoxShift.SelectedItem.ToString());
+                        MessageBox.Show(comboBoxWorkType.SelectedItem.ToString());
 
-            //         // check to make sure location id already existing in the file
-            //         if (File.Exists(fileLocation)) // tests to see if file exists      
-            //         {
-            //             csvDataLocation = new StreamReader(File.OpenRead(fileLocation));
-            //             List<string> LineValues = new List<string>();
-            //             string line;
-            //             while ((line = csvDataLocation.ReadLine()) != null)
-            //             {
-            //                 LineValues = line.Split(',').ToList();
-            //                 // checking location id already exist in the file
-            //                 if (textLocationId.Text == LineValues[0].ToString())
-            //                 {
-            //                     //MessageBox.Show("Location ID already exist in the file");
-            //                     //textLocationId.Focus();
-            //                     //return;
-            //                     break;
-            //                 }
-            //             }
-            //         }
-            //         else
-            //         {
-            //             MessageBox.Show(fileLocation);
-            //             MessageBox.Show("Location.csv Data File not found");
-            //             textLocationId.Focus();
-            //         }
+                        LineValues = line.Split(',').ToList();
 
-            //         // check to make sure day is valid
-            //    }
+                        // MessageBox.Show(LineValues[0].ToString());
+                        // MessageBox.Show(LineValues[1].ToString());
+                        // MessageBox.Show(LineValues[2].ToString());
+                        MessageBox.Show(LineValues[3].ToString());
+
+                        // checking if the shift already exist in the file
+                        if ((textLocationId.Text == LineValues[0].ToString()) &&
+                          (textDay.Text == LineValues[1].ToString()) &&
+                          (comboBoxShift.SelectedItem.ToString() == LineValues[2].ToString()) &&
+                          (comboBoxWorkType.SelectedItem.ToString() == LineValues[3].ToString()))
+                        {
+                            MessageBox.Show("Shift already exist in the file");
+                            comboBoxShift.Focus();
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(fileOpeningHour);
+                    MessageBox.Show("ShiftTime.csv Data File not found");
+                    textLocationId.Focus();
+                }
+
+                // write to the file
+
+            }
         }
 
         private void textDay_TextChanged(object sender, EventArgs e)
@@ -222,5 +214,16 @@ namespace WinFormsApp1
             }
         }
 
+    }
+
+    public class ShiftTimeRecord
+    {
+        //This defines the login dettails records structure//
+        public string? LocationId { get; set; }
+        public string? Day { get; set; }
+        public string? Shift { get; set; }
+        public string? ShiftStartTime { get; set; }
+        public string? ShiftEndTime { get; set; }
+        public string? NoOfEmployees { get; set; }
     }
 }

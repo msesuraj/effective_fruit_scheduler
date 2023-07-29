@@ -169,7 +169,7 @@
             // comboBoxWorkType
             // 
             comboBoxWorkType.FormattingEnabled = true;
-            comboBoxWorkType.Items.AddRange(new object[] { "Teller\t", "Stock Member" });
+            comboBoxWorkType.Items.AddRange(new object[] { "Teller", "Stock Member" });
             comboBoxWorkType.Location = new Point(186, 315);
             comboBoxWorkType.Name = "comboBoxWorkType";
             comboBoxWorkType.Size = new Size(182, 33);
