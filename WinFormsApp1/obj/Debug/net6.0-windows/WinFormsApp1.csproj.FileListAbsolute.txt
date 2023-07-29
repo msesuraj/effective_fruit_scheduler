@@ -23,3 +23,4 @@ C:\Users\admin\Documents\GitHub\effective_fruit_scheduler\WinFormsApp1\obj\Debug
 C:\Users\admin\Documents\GitHub\effective_fruit_scheduler\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.OpeningHours.resources
 C:\Users\admin\Documents\GitHub\effective_fruit_scheduler\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.Employees.resources
 C:\Users\admin\Documents\GitHub\effective_fruit_scheduler\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.ShiftTimes.resources
+C:\Users\admin\Documents\GitHub\effective_fruit_scheduler\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.ShiftSchedules.resources

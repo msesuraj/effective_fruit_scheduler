@@ -190,6 +190,7 @@
             buttonShiftSchedule.TabIndex = 13;
             buttonShiftSchedule.Text = "Shift Schedules";
             buttonShiftSchedule.UseVisualStyleBackColor = true;
+            buttonShiftSchedule.Click += buttonShiftSchedule_Click;
             // 
             // MainMenu
             // 

@@ -59,5 +59,12 @@ namespace WinFormsApp1
             shifttime.Show();
             this.Hide();
         }
+
+        private void buttonShiftSchedule_Click(object sender, EventArgs e)
+        {
+            ShiftSchedules shiftschedule = new ShiftSchedules();
+            shiftschedule.Show();
+            this.Hide();
+        }
     }
 }

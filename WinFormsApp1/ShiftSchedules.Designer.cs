@@ -34,8 +34,8 @@
             label3 = new Label();
             buttonSearch = new Button();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dataGridViewSS = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewSS).BeginInit();
             SuspendLayout();
             // 
             // buttonMainMenuSS
@@ -46,6 +46,7 @@
             buttonMainMenuSS.TabIndex = 7;
             buttonMainMenuSS.Text = "MainMenu";
             buttonMainMenuSS.UseVisualStyleBackColor = true;
+            buttonMainMenuSS.Click += buttonMainMenuSS_Click;
             // 
             // label1
             // 
@@ -93,22 +94,22 @@
             label2.Size = new Size(1138, 10);
             label2.TabIndex = 19;
             // 
-            // dataGridView1
+            // dataGridViewSS
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 178);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(1086, 225);
-            dataGridView1.TabIndex = 20;
+            dataGridViewSS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewSS.Location = new Point(12, 178);
+            dataGridViewSS.Name = "dataGridViewSS";
+            dataGridViewSS.RowHeadersWidth = 62;
+            dataGridViewSS.RowTemplate.Height = 33;
+            dataGridViewSS.Size = new Size(1086, 225);
+            dataGridViewSS.TabIndex = 20;
             // 
             // ShiftSchedules
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1133, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewSS);
             Controls.Add(label2);
             Controls.Add(buttonSearch);
             Controls.Add(label3);
@@ -117,7 +118,7 @@
             Controls.Add(buttonMainMenuSS);
             Name = "ShiftSchedules";
             Text = "EF&V ShiftSchedules";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewSS).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,6 +131,6 @@
         private Label label3;
         private Button buttonSearch;
         private Label label2;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewSS;
     }
 }
