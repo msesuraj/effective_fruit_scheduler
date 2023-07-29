@@ -22,6 +22,9 @@
     <Compile Update="Policies.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ShiftSchedules.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ShiftTimes.cs">
       <SubType>Form</SubType>
     </Compile>
