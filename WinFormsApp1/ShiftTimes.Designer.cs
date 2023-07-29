@@ -45,7 +45,7 @@
             comboBoxShift = new ComboBox();
             label5 = new Label();
             textBoxShiftStartTime = new TextBox();
-            textEndTime = new TextBox();
+            textBoxShiftEndTime = new TextBox();
             labelNumberOfStaff = new Label();
             textBoxNoOfEmployeesRequired = new TextBox();
             SuspendLayout();
@@ -200,12 +200,12 @@
             textBoxShiftStartTime.Size = new Size(92, 31);
             textBoxShiftStartTime.TabIndex = 5;
             // 
-            // textEndTime
+            // textBoxShiftEndTime
             // 
-            textEndTime.Location = new Point(816, 252);
-            textEndTime.Name = "textEndTime";
-            textEndTime.Size = new Size(92, 31);
-            textEndTime.TabIndex = 6;
+            textBoxShiftEndTime.Location = new Point(816, 252);
+            textBoxShiftEndTime.Name = "textBoxShiftEndTime";
+            textBoxShiftEndTime.Size = new Size(92, 31);
+            textBoxShiftEndTime.TabIndex = 6;
             // 
             // labelNumberOfStaff
             // 
@@ -230,7 +230,7 @@
             ClientSize = new Size(972, 506);
             Controls.Add(textBoxNoOfEmployeesRequired);
             Controls.Add(labelNumberOfStaff);
-            Controls.Add(textEndTime);
+            Controls.Add(textBoxShiftEndTime);
             Controls.Add(textBoxShiftStartTime);
             Controls.Add(label5);
             Controls.Add(comboBoxShift);
@@ -274,7 +274,7 @@
         private ComboBox comboBoxShift;
         private Label label5;
         private TextBox textBoxShiftStartTime;
-        private TextBox textEndTime;
+        private TextBox textBoxShiftEndTime;
         private Label labelNumberOfStaff;
         private TextBox textBoxNoOfEmployeesRequired;
     }

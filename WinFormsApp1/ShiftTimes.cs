@@ -71,10 +71,10 @@ namespace WinFormsApp1
                 MessageBox.Show("Please enter a Shift Strt Time");
                 textBoxShiftStartTime.Focus();
             }
-            else if ((string.IsNullOrWhiteSpace(textEndTime.Text)))
+            else if ((string.IsNullOrWhiteSpace(textBoxShiftEndTime.Text)))
             {
                 MessageBox.Show("Please enter a Shift End Time");
-                textEndTime.Focus();
+                textBoxShiftEndTime.Focus();
             }
             else
             {
@@ -86,17 +86,8 @@ namespace WinFormsApp1
                     string line;
                     while ((line = csvDataShiftTime.ReadLine()) != null)
                     {
-                        // MessageBox.Show(textLocationId.Text);
-                        // MessageBox.Show(textDay.Text);
-                        // MessageBox.Show(comboBoxShift.SelectedItem.ToString());
-                        MessageBox.Show(comboBoxWorkType.SelectedItem.ToString());
 
                         LineValues = line.Split(',').ToList();
-
-                        // MessageBox.Show(LineValues[0].ToString());
-                        // MessageBox.Show(LineValues[1].ToString());
-                        // MessageBox.Show(LineValues[2].ToString());
-                        MessageBox.Show(LineValues[3].ToString());
 
                         // checking if the shift already exist in the file
                         if ((textLocationId.Text == LineValues[0].ToString()) &&
@@ -106,6 +97,7 @@ namespace WinFormsApp1
                         {
                             MessageBox.Show("Shift already exist in the file");
                             comboBoxShift.Focus();
+                            csvDataShiftTime.Close();
                             return;
                         }
                     }
@@ -117,7 +109,28 @@ namespace WinFormsApp1
                     textLocationId.Focus();
                 }
 
-                // write to the file
+                // write to the CSV file
+                csvDataShiftTime.Close();
+                var sb = new StringBuilder();
+                var line1 = "";
+                line1 += textLocationId.Text + "," + textDay.Text + "," +
+                        comboBoxShift.SelectedItem.ToString() + "," +
+                        comboBoxWorkType.SelectedItem.ToString() + "," +
+                        textBoxShiftStartTime.Text + "," + textBoxShiftEndTime.Text + "," +
+                        textBoxNoOfEmployeesRequired.Text;
+                sb.AppendLine(line1);
+                TextWriter sw = new StreamWriter(fileShiftTime, true);
+                sw.Write(sb.ToString());
+                sw.Close();
+                MessageBox.Show("New Shift Record Saved");
+                textLocationId.Text = "";
+                textDay.Text = "";
+                comboBoxWorkType.Text = "";
+                comboBoxShift.Text = "";
+                textBoxShiftStartTime.Text = "";
+                textBoxShiftEndTime.Text = "";
+                textBoxNoOfEmployeesRequired.Text = "";
+                textLocationId.Focus();
 
             }
         }
