@@ -12,6 +12,9 @@ namespace WinFormsApp1
 {
     public partial class ShiftSchedules : Form
     {
+        string fileShiftSchedule = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "ShiftSchedules.csv";
+        StreamReader csvDataShiftSchedule = null;//creates a variable to load the data from the csv file
+
         public ShiftSchedules()
         {
             InitializeComponent();
@@ -32,31 +35,50 @@ namespace WinFormsApp1
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             //write code to populate data frame from ShiftSchedules.csv 
-            var lines = File.ReadAllLines("contacts.csv");
-            var list = new List<Contact>();
-            foreach (var line in lines)
+            // var lines = File.ReadAllLines(fileShiftSchedule);
+            // var list = new List<ShiftScheduleRecord>();
+            // foreach (var line in lines)
+            // {
+            //     var values = line.Split(',');
+            //      MessageBox.Show(values[0]);
+            //    // if (values.Length==2) // use this to check date
+            //     //{
+            //         var shiftScheduleRecord = new ShiftScheduleRecord() { ShiftDate = values[0], Location = values[1] };
+            //         list.Add(shiftScheduleRecord); 
+            //     //}
+            // }
+            if (File.Exists(fileShiftSchedule)) // tests to see if file exists      
             {
-                var values = line.Split(',');
-                if (values.Length==2)
-                {
-                    var contact = new Contact() { Name = values[0], Phone = values[1] };
-                    list.Add(contact); 
-                }
+                csvDataShiftSchedule = new StreamReader(File.OpenRead(fileShiftSchedule));
             }
-            //list.ForEach(x => Console.WriteLine($"{x.Name}\t{x.Phone}"));
-            dataGridViewSS.DataSource = list;
+            else
+            {
+                MessageBox.Show(fileShiftSchedule);
+                MessageBox.Show("ShiftSchedule.csv Data File not found");
+                buttonSearch.Focus();
+            }
+            List<string> LineValues = new List<string>();
+            var shiftScheduleRecord = new List<ShiftScheduleRecord>();
+            string line;
+            while ((line = csvDataShiftSchedule.ReadLine()) != null)
+            {
+                // Console.WriteLine(line);
+                LineValues = line.Split(',').ToList();
+                MessageBox.Show(LineValues[0]);
+            }
+            
+            //dataGridViewSS.DataSource = list;
         }
     }
 
    public class ShiftScheduleRecord
     {
-        public string location { get; set; }
-        public string Day { get; set; }
+        public string ShiftDate { get; set; }
+        public string Location { get; set; }
+        public string ShiftDay { get; set; }
         public string Shift { get; set; }
-        public string work { get; set; }
-        public string date { get; set; }
-        public string ShiftType { get; set; }
-        public string ShiftStatus { get; set; }
+        public string WorkType { get; set; }
+        public string EmployeeName { get; set; }
     }
   
 }
