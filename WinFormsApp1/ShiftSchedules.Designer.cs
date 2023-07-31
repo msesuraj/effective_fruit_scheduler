@@ -30,7 +30,7 @@
         {
             buttonMainMenuSS = new Button();
             label1 = new Label();
-            dateTimePickerHireDate = new DateTimePicker();
+            dateTimePickerSelectDate = new DateTimePicker();
             label3 = new Label();
             buttonSearch = new Button();
             label2 = new Label();
@@ -57,15 +57,15 @@
             label1.Size = new Size(1138, 10);
             label1.TabIndex = 8;
             // 
-            // dateTimePickerHireDate
+            // dateTimePickerSelectDate
             // 
-            dateTimePickerHireDate.CustomFormat = "DD-Mon-YY";
-            dateTimePickerHireDate.Format = DateTimePickerFormat.Short;
-            dateTimePickerHireDate.Location = new Point(214, 103);
-            dateTimePickerHireDate.Name = "dateTimePickerHireDate";
-            dateTimePickerHireDate.Size = new Size(123, 31);
-            dateTimePickerHireDate.TabIndex = 16;
-            dateTimePickerHireDate.ValueChanged += dateTimePickerHireDate_ValueChanged;
+            dateTimePickerSelectDate.CustomFormat = "DD-Mon-YY";
+            dateTimePickerSelectDate.Format = DateTimePickerFormat.Short;
+            dateTimePickerSelectDate.Location = new Point(214, 103);
+            dateTimePickerSelectDate.Name = "dateTimePickerSelectDate";
+            dateTimePickerSelectDate.Size = new Size(123, 31);
+            dateTimePickerSelectDate.TabIndex = 16;
+            dateTimePickerSelectDate.ValueChanged += dateTimePickerHireDate_ValueChanged;
             // 
             // label3
             // 
@@ -114,7 +114,7 @@
             Controls.Add(label2);
             Controls.Add(buttonSearch);
             Controls.Add(label3);
-            Controls.Add(dateTimePickerHireDate);
+            Controls.Add(dateTimePickerSelectDate);
             Controls.Add(label1);
             Controls.Add(buttonMainMenuSS);
             Name = "ShiftSchedules";
@@ -128,7 +128,7 @@
 
         private Button buttonMainMenuSS;
         private Label label1;
-        private DateTimePicker dateTimePickerHireDate;
+        private DateTimePicker dateTimePickerSelectDate;
         private Label label3;
         private Button buttonSearch;
         private Label label2;

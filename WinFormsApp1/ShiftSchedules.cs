@@ -34,6 +34,8 @@ namespace WinFormsApp1
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(dateTimePickerSelectDate.Value.ToString("dd/MM/yyyy"));
+            //dateTimePickerSelectDate.Value.ToString("dd/MM/yyyy")
             //write code to populate data frame from ShiftSchedules.csv 
             // var lines = File.ReadAllLines(fileShiftSchedule);
             // var list = new List<ShiftScheduleRecord>();
@@ -62,18 +64,24 @@ namespace WinFormsApp1
             string line;
             while ((line = csvDataShiftSchedule.ReadLine()) != null)
             {
-                // Console.WriteLine(line);
                 LineValues = line.Split(',').ToList();
-                MessageBox.Show(LineValues[0]);
-                var shiftScheduleRecord = new ShiftScheduleRecord() { ShiftDate = LineValues[0], Location = LineValues[1] };
-                shiftScheduleRecords.Add(shiftScheduleRecord); 
+                var shiftScheduleRecord = new ShiftScheduleRecord()
+                {
+                    ShiftDate = LineValues[0],
+                    Location = LineValues[1],
+                    ShiftDay = LineValues[2],
+                    Shift = LineValues[3],
+                    WorkType = LineValues[4],
+                    EmployeeName = LineValues[5]
+                };
+                shiftScheduleRecords.Add(shiftScheduleRecord);
             }
-            
+
             dataGridViewSS.DataSource = shiftScheduleRecords;
         }
     }
 
-   public class ShiftScheduleRecord
+    public class ShiftScheduleRecord
     {
         public string ShiftDate { get; set; }
         public string Location { get; set; }
@@ -82,5 +90,5 @@ namespace WinFormsApp1
         public string WorkType { get; set; }
         public string EmployeeName { get; set; }
     }
-  
+
 }
