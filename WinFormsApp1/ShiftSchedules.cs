@@ -58,16 +58,18 @@ namespace WinFormsApp1
                 buttonSearch.Focus();
             }
             List<string> LineValues = new List<string>();
-            var shiftScheduleRecord = new List<ShiftScheduleRecord>();
+            var shiftScheduleRecords = new List<ShiftScheduleRecord>();
             string line;
             while ((line = csvDataShiftSchedule.ReadLine()) != null)
             {
                 // Console.WriteLine(line);
                 LineValues = line.Split(',').ToList();
                 MessageBox.Show(LineValues[0]);
+                var shiftScheduleRecord = new ShiftScheduleRecord() { ShiftDate = LineValues[0], Location = LineValues[1] };
+                shiftScheduleRecords.Add(shiftScheduleRecord); 
             }
             
-            //dataGridViewSS.DataSource = list;
+            dataGridViewSS.DataSource = shiftScheduleRecords;
         }
     }
 
