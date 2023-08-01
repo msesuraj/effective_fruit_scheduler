@@ -34,21 +34,7 @@ namespace WinFormsApp1
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dateTimePickerSelectDate.Value.ToString("dd/MM/yyyy"));
-            //dateTimePickerSelectDate.Value.ToString("dd/MM/yyyy")
-            //write code to populate data frame from ShiftSchedules.csv 
-            // var lines = File.ReadAllLines(fileShiftSchedule);
-            // var list = new List<ShiftScheduleRecord>();
-            // foreach (var line in lines)
-            // {
-            //     var values = line.Split(',');
-            //      MessageBox.Show(values[0]);
-            //    // if (values.Length==2) // use this to check date
-            //     //{
-            //         var shiftScheduleRecord = new ShiftScheduleRecord() { ShiftDate = values[0], Location = values[1] };
-            //         list.Add(shiftScheduleRecord); 
-            //     //}
-            // }
+          
             if (File.Exists(fileShiftSchedule)) // tests to see if file exists      
             {
                 csvDataShiftSchedule = new StreamReader(File.OpenRead(fileShiftSchedule));
@@ -65,16 +51,21 @@ namespace WinFormsApp1
             while ((line = csvDataShiftSchedule.ReadLine()) != null)
             {
                 LineValues = line.Split(',').ToList();
-                var shiftScheduleRecord = new ShiftScheduleRecord()
+                //filter by date
+                if (LineValues[0] == dateTimePickerSelectDate.Value.ToString("dd/MM/yyyy"))
                 {
-                    ShiftDate = LineValues[0],
-                    Location = LineValues[1],
-                    ShiftDay = LineValues[2],
-                    Shift = LineValues[3],
-                    WorkType = LineValues[4],
-                    EmployeeName = LineValues[5]
-                };
-                shiftScheduleRecords.Add(shiftScheduleRecord);
+             
+                    var shiftScheduleRecord = new ShiftScheduleRecord()
+                    {
+                        ShiftDate = LineValues[0],
+                        Location = LineValues[1],
+                        ShiftDay = LineValues[2],
+                        Shift = LineValues[3],
+                        WorkType = LineValues[4],
+                        EmployeeName = LineValues[5]
+                    };
+                    shiftScheduleRecords.Add(shiftScheduleRecord);
+                }
             }
 
             dataGridViewSS.DataSource = shiftScheduleRecords;
