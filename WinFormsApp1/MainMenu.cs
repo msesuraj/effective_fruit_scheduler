@@ -66,5 +66,12 @@ namespace WinFormsApp1
             shiftschedule.Show();
             this.Hide();
         }
+
+        private void buttonCalendar_Click(object sender, EventArgs e)
+        {
+            Calendar calendar = new Calendar();
+            calendar.Show();
+            this.Hide();
+        }
     }
 }
