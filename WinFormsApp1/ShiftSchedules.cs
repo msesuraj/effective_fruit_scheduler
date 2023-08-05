@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
+    //this will show where all the shifts have been scheduled from the employee section
+
     public partial class ShiftSchedules : Form
     {
         string fileShiftSchedule = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "ShiftSchedules.csv";
@@ -25,6 +27,7 @@ namespace WinFormsApp1
 
         }
 
+        //redirects to the main menu
         private void buttonMainMenuSS_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
@@ -32,10 +35,11 @@ namespace WinFormsApp1
             this.Hide();
         }
 
+        //this where all shifts can be added
         private void buttonSearch_Click(object sender, EventArgs e)
         {
           
-            if (File.Exists(fileShiftSchedule)) // tests to see if file exists      
+            if (File.Exists(fileShiftSchedule)) // this conducts a test to see if the inputed file exists      
             {
                 csvDataShiftSchedule = new StreamReader(File.OpenRead(fileShiftSchedule));
             }
@@ -72,6 +76,7 @@ namespace WinFormsApp1
         }
     }
 
+    //this shows the records of the shifts that have been added
     public class ShiftScheduleRecord
     {
         public string ShiftDate { get; set; }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
+    //this will bring you to the employee page
     public partial class Employees : Form
     {
         string fileEmployee = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Employees.csv";
@@ -31,7 +32,7 @@ namespace WinFormsApp1
         {
 
         }
-
+        //this will check to see if the number is valid or if it exists
         private void textEmployeeNumber_Validated(object sender, EventArgs e)
         {
             //MessageBox.Show("Invalid employee number"); 
@@ -149,7 +150,7 @@ namespace WinFormsApp1
             dateTimePickerTerminationDate.CustomFormat = " "; ;
             textEmployeeNumber.Focus();
         }
-
+        //this is an optional slot to fill if employees have a date to be terminated
         private void dateTimePickerTerminationDate_ValueChanged(object sender, EventArgs e)
         {
             dateTimePickerTerminationDate.CustomFormat = "dd/MM/yyyy";

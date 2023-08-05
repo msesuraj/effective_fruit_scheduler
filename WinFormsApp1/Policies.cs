@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//this shows the policies of the company
+
 namespace WinFormsApp1
 {
     public partial class Policies : Form

@@ -41,6 +41,7 @@ namespace WinFormsApp1
 
         private void buttonSaveSF_Click(object sender, EventArgs e)
         {
+            //checks if the slots are filled and valid
             if ((string.IsNullOrWhiteSpace(textLocationId.Text)))
             {
                 MessageBox.Show("Please enter a valid Location ID");
@@ -103,6 +104,7 @@ namespace WinFormsApp1
                     }
                 }
                 else
+                //error message
                 {
                     MessageBox.Show(fileOpeningHour);
                     MessageBox.Show("ShiftTime.csv Data File not found");
@@ -150,6 +152,7 @@ namespace WinFormsApp1
                     csvDataLocation = new StreamReader(File.OpenRead(fileLocation));
                 }
                 else
+                //error message
                 {
                     MessageBox.Show(fileLocation);
                     MessageBox.Show("Location.csv Data File not found");
@@ -177,6 +180,7 @@ namespace WinFormsApp1
 
         private void textDay_Validated(object sender, EventArgs e)
         {
+            //asks for location ID
             if (!(string.IsNullOrWhiteSpace(textDay.Text)))
             {
                 if (string.IsNullOrWhiteSpace(textLocationId.Text))
@@ -231,7 +235,7 @@ namespace WinFormsApp1
 
     public class ShiftTimeRecord
     {
-        //This defines the login dettails records structure//
+        //This defines the login details records structure for shift times//
         public string? LocationId { get; set; }
         public string? Day { get; set; }
         public string? Shift { get; set; }

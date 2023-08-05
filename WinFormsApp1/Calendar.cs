@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//this is where you will find all of the dates
 namespace WinFormsApp1
 {
     public partial class Calendar : Form
@@ -16,7 +16,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-
+        //this is the button that will take you back to the main menu
         private void buttonMainMenuE_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = new MainMenu();

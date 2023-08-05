@@ -80,6 +80,7 @@ namespace WinFormsApp1
                 textLocationId.Focus();
             }
         }
+        //this checks for whether the day is valid or already in use
         private void textDay_Validated(object sender, EventArgs e)
         {
             if (!(string.IsNullOrWhiteSpace(textDay.Text)))
@@ -129,6 +130,7 @@ namespace WinFormsApp1
         }
 
         private void buttonSaveOH_Click(object sender, EventArgs e)
+        //the error messages if following slots are blank after the user presses save
         {
             // validating all textbox 
             if (string.IsNullOrWhiteSpace(textLocationId.Text))
