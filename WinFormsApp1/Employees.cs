@@ -11,6 +11,12 @@ using System.Windows.Forms;
 namespace WinFormsApp1
 {
     //this will bring you to the employee page
+    //the slots are used to input the employees' details
+    //if slots aren't filled, it would lead to an error message
+    //due to at least one of or all slots are blank
+    //Once the slots are filled, when the user presses save
+    //the data will be loaded onto the csv file
+    
     public partial class Employees : Form
     {
         string fileEmployee = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Employees.csv";
@@ -28,6 +34,8 @@ namespace WinFormsApp1
             this.Hide();
         }
 
+       //This is where an employee's details are inputted
+       //The software will check from the csv file if it already exists
         private void textEmployeeNumber_TextChanged(object sender, EventArgs e)
         {
 
@@ -40,6 +48,7 @@ namespace WinFormsApp1
             {
                 if (File.Exists(fileEmployee)) // tests to see if file exists      
                 {
+                    
                     csvDataEmployee = new StreamReader(File.OpenRead(fileEmployee));
                     List<string> LineValues = new List<string>();
                     string line;
@@ -68,6 +77,8 @@ namespace WinFormsApp1
             }
         }
 
+        //This will ask for employee details to be inputted
+
         public class EmployeeRecord
         {
             //This defines the login dettails records structure//
@@ -80,6 +91,11 @@ namespace WinFormsApp1
             public string? EmployeeTaxFileNumber { get; set; }
         }
 
+        //This will save the employee details onto the csv file
+        //If the slots are blank, it will show an error message
+        //If the slots are filled, it will save the data onto the csv file
+        //It will also show a message box to show that the data has been saved
+        //It will also clear the slots once the data has been saved    
         private void buttonSave_Click(object sender, EventArgs e)
         {
             // validating all textbox 
@@ -151,6 +167,9 @@ namespace WinFormsApp1
             textEmployeeNumber.Focus();
         }
         //this is an optional slot to fill if employees have a date to be terminated
+        //if the slot is blank, it will show the termination date as default
+        //if the slot is filled, it will show the termination date as the date inputted 
+        //by the user
         private void dateTimePickerTerminationDate_ValueChanged(object sender, EventArgs e)
         {
             dateTimePickerTerminationDate.CustomFormat = "dd/MM/yyyy";

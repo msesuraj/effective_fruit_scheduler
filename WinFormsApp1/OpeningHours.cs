@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
+    //this program will maintain and accept the opening hours and details of a specific shop'
+    //the data will be loaded onto the OpeningHours.csv file
     public partial class OpeningHours : Form
     {
         string fileLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Locations.csv";
@@ -23,6 +25,8 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+        //This will be used to redirect the user to the main menu
+        //once clicked, it will exit the policy page and reopen the main menu
         private void buttonMainMenuOH_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
@@ -42,6 +46,10 @@ namespace WinFormsApp1
 
         }
 
+        //Once the id of the location is entered, it will check its validation
+        //If valid, it will show the location or it will say invalid if invalid id in inputted
+        //This will also show the name of the location
+     
         private void textLocationId_Validated(object sender, EventArgs e)
         {
             if (!(string.IsNullOrWhiteSpace(textLocationId.Text)))
@@ -81,6 +89,12 @@ namespace WinFormsApp1
             }
         }
         //this checks for whether the day is valid or already in use
+        //if valid, it will show the day
+        //if invalid, it will show a message box saying invalid day
+        //if already in use, it will show a message box saying already in use
+        //this will also check for the location id and day already existing in the file
+        //if it does, it will show a message box saying already in use
+        //if not, it will show the day
         private void textDay_Validated(object sender, EventArgs e)
         {
             if (!(string.IsNullOrWhiteSpace(textDay.Text)))
@@ -90,6 +104,10 @@ namespace WinFormsApp1
                     MessageBox.Show("Please enter a valid Location ID");
                     textLocationId.Focus();
                 }
+                // checking for valid day
+                // if valid, it will show the day
+                //  if invalid, it will show a message box saying invalid day
+                //ranging from Monday - Sunday
                 if (textDay.Text == "Monday" || textDay.Text == "Tuesday" || textDay.Text == "Wednesday" || textDay.Text == "Thursday" || textDay.Text == "Friday" || textDay.Text == "Saturday" || textDay.Text == "Sunday")
                 {
                     // check to make sure location id and Day already existing in the file
@@ -102,6 +120,8 @@ namespace WinFormsApp1
                         {
                             LineValues = line.Split(',').ToList();
                             // checking location id and day already exist in the file
+                            // if it does, it will show a message box saying already in use
+                            // if not, it will show the day
                             if ((textLocationId.Text == LineValues[0].ToString()) && (textDay.Text == LineValues[1].ToString())) 
                             {
                                 MessageBox.Show("Location ID and Day already existing in the file");
@@ -115,6 +135,7 @@ namespace WinFormsApp1
                     }
                     else
                     {
+                        
                         MessageBox.Show(fileOpeningHour);
                         MessageBox.Show("OpeningHour.csv Data File not found");
                         textDay.Focus();
@@ -122,12 +143,20 @@ namespace WinFormsApp1
                 }
                 else
                 {
+                    //if invalid, it will show a message box saying invalid day
                     MessageBox.Show("Invalid Day: Must be Monday/Tuesday/Wednesday/Thurday/Friday/Saturday/Sunday");
                     textDay.Text = "";
                     textDay.Focus();
                 }
             }
         }
+
+      //the button will first check if the data is inputted incase it is valid or in use
+      //if not, it will be loaded into the csv file or it would say in use only or invalid
+      //if the data is valid, it will be loaded into the csv file   
+      //if the data is in use, it will show a message box saying already in use
+      //if the data is invalid, it will show a message box saying invalid
+      //if the data is blank, it will show a message box saying blank
 
         private void buttonSaveOH_Click(object sender, EventArgs e)
         //the error messages if following slots are blank after the user presses save
@@ -158,6 +187,12 @@ namespace WinFormsApp1
                 return;
             }
             // writing data to the file
+            //this lets the user know that the opening hour that they inputted ha been saved into the file
+            //it will let the user know it has been saved
+            //it will also clear the textboxes
+            //it will also focus on the location id textbox
+            //it will also show a message box saying new opening hour record saved
+            
             var sb = new StringBuilder();
             var line = "";
             line += textLocationId.Text + ","  + textDay.Text + "," + textStartTime.Text + "," + textEndTime.Text ;
@@ -175,6 +210,7 @@ namespace WinFormsApp1
 
     }
 
+   //this defines the location details records structure
     public class LocationRecord
     {
         //This defines the login dettails records structure//
@@ -184,9 +220,9 @@ namespace WinFormsApp1
         public string? ShopDayStart { get; set; }
         public string? ShopDayEnd { get; set; }
     }
+    //this defines the opening hour records structure
     public class OpeningHourRecord
     {
-        //This defines the login dettails records structure//
         public string? LocationId { get; set; }
         public string? Day { get; set; }
         public string? StartTime { get; set; }

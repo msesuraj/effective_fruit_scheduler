@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace WinFormsApp1
 {
     //this will show where all the shifts have been scheduled from the employee section
-
+    //this will show the shifts that have been scheduled for each employee
     public partial class ShiftSchedules : Form
     {
         string fileShiftSchedule = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "ShiftSchedules.csv";
@@ -28,6 +28,7 @@ namespace WinFormsApp1
         }
 
         //redirects to the main menu
+        //this will take you back to the main menu
         private void buttonMainMenuSS_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
@@ -35,7 +36,8 @@ namespace WinFormsApp1
             this.Hide();
         }
 
-        //this where all shifts can be added
+        //this will search for the shifts that have been scheduled
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
           
@@ -49,6 +51,8 @@ namespace WinFormsApp1
                 MessageBox.Show("ShiftSchedule.csv Data File not found");
                 buttonSearch.Focus();
             }
+            //this will show the shifts that have been scheduled
+            
             List<string> LineValues = new List<string>();
             var shiftScheduleRecords = new List<ShiftScheduleRecord>();
             string line;
@@ -71,7 +75,7 @@ namespace WinFormsApp1
                     shiftScheduleRecords.Add(shiftScheduleRecord);
                 }
             }
-
+            //this will show the shifts that have been scheduled
             dataGridViewSS.DataSource = shiftScheduleRecords;
         }
     }

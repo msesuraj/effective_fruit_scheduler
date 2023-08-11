@@ -10,8 +10,15 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
+    
     public partial class ShiftTimes : Form
     {
+         //this is where data from the following csv files will be used for the code to work'
+        //if files aren't in directory, code will not be able to work
+        //csv files are able to accessed via an Excel spreadsheet
+        //this can allow the user to view the shifts that have been scheduled
+        //it required a specific date to be selected for shift that has been scheduled to be viewed
+   
         string fileLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, @"../../../data/")) + "Locations.csv";
         StreamReader csvDataLocation = null;//creates a variable to load the data from the csv file
         List<LocationRecord> LocationRecords = new List<LocationRecord>();
@@ -22,6 +29,10 @@ namespace WinFormsApp1
         StreamReader csvDataShiftTime = null;//creates a variable to load the data from the csv file
         List<ShiftTimeRecord> ShiftTimeRecords = new List<ShiftTimeRecord>();
 
+        //this code asks for the shift times
+        //for different shifts that have been scheduled and
+        //the employees and their jobs during said scheduled shifts
+        //this code also allows the user to add shifts
         public ShiftTimes()
         {
             InitializeComponent();
@@ -32,6 +43,7 @@ namespace WinFormsApp1
 
         }
 
+        //users can use this to redirect to the main menu
         private void buttonMainMenuST_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
@@ -39,9 +51,14 @@ namespace WinFormsApp1
             this.Hide();
         }
 
+        //this is where the user can add shifts
         private void buttonSaveSF_Click(object sender, EventArgs e)
         {
             //checks if the slots are filled and valid
+            //if not, the user will be prompted to fill in the slots
+            //if the slots are filled, the user will be able to add shifts
+            //if the slots are not filled, the user will be prompted to fill in the slots
+            
             if ((string.IsNullOrWhiteSpace(textLocationId.Text)))
             {
                 MessageBox.Show("Please enter a valid Location ID");
@@ -80,6 +97,12 @@ namespace WinFormsApp1
             else
             {
                 // check to make sure shift already existing in the file
+                // if it does, then display error message and return
+                // if it does not, then add the shift to the file
+                // and display message that shift has been added
+                // and clear the form for next shift to be added
+                // and set focus to Location ID
+                // and return
                 if (File.Exists(fileShiftTime)) // tests to see if file exists      
                 {
                     csvDataShiftTime = new StreamReader(File.OpenRead(fileShiftTime));
@@ -112,6 +135,10 @@ namespace WinFormsApp1
                 }
 
                 // write to the CSV file
+                // and display message that shift has been added
+                // and clear the form for next shift to be added
+                // and set focus to Location ID
+                // and return
                 csvDataShiftTime.Close();
                 var sb = new StringBuilder();
                 var line1 = "";
@@ -142,6 +169,10 @@ namespace WinFormsApp1
 
         }
 
+        // Checking if the Location ID is valid
+        // if it is, then display the Location Name
+        // if it is not, then display error message
+        // and set focus to Location ID
         private void textLocationId_Validated(object sender, EventArgs e)
         {
             if (!(string.IsNullOrWhiteSpace(textLocationId.Text)))
@@ -178,6 +209,11 @@ namespace WinFormsApp1
             }
         }
 
+        // Checking if the Day is valid
+        // if it is, then display the Day
+        //  if it is not, then display error message
+        // and set focus to Day
+    
         private void textDay_Validated(object sender, EventArgs e)
         {
             //asks for location ID
@@ -191,6 +227,10 @@ namespace WinFormsApp1
                 if (textDay.Text == "Monday" || textDay.Text == "Tuesday" || textDay.Text == "Wednesday" || textDay.Text == "Thursday" || textDay.Text == "Friday" || textDay.Text == "Saturday" || textDay.Text == "Sunday")
                 {
                     // check to make sure location id and Day already existing in the file
+                    // if it does, then display error message and return
+                    // if it does not, then add the location id and Day to the file
+                    // and display message that location id and Day has been added
+                    // and clear the form for next location id and Day to be added
                     if (File.Exists(fileOpeningHour)) // tests to see if file exists      
                     {
                         csvDataOpeningHour = new StreamReader(File.OpenRead(fileOpeningHour));
@@ -233,9 +273,9 @@ namespace WinFormsApp1
 
     }
 
+    //This defines the  details records structure for shift times//
     public class ShiftTimeRecord
     {
-        //This defines the login details records structure for shift times//
         public string? LocationId { get; set; }
         public string? Day { get; set; }
         public string? Shift { get; set; }
